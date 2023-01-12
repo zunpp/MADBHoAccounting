@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<style>
+        .text-center {
+            text-align: center !important;
+            font-size: 20px;
+            padding: 10%;
+            background: #004702;
+            color: white;
+            border-radius: 20px;
+            margin: 10%;
+        }
+    </style>*@
+
+@*<div class="text-center">
+        <p>တိုင်းဒေသကြီး - @ViewBag.StateName</p>
+        <p>မြို့နယ် - @ViewBag.TownshipName [@ViewBag.TownshipId]</p>
+    </div>*@
+
+<!-- Main content -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!--<div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <center>
+                        <h2 class="m-0 text-dark">Login ဝင်ထားသော အုပ်စုအမည်</h2>              
+                    </center>
+                </div>--><!-- /.col -->
+            <!--</div>--><!-- /.row -->
+        <!--</div>--><!-- /.container-fluid -->
+    <!--</div>-->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Info boxes -->
+            <div class="row" style="background-color: green; color: white; padding: 26px 0px 0px 10px; margin: 1% 0% 1% 65%; text-align: center; font-size: 17px; border-radius:25px">
+                <div class="col-12  text-end">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info elevation-1">
+                            <i class="fa-solid fa-mountain-city"></i>
+                        </span>
+                        @if (ViewBag.AccountType == "Admin")
+                        {
+                            <div class="info-box-content">
+                                <span class="info-box-text">UserName :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.Department
+                                </span>
+                            </div>
+                        }
+                        else if (ViewBag.AccountType == "Super Admin")
+                        {
+                            <div class="info-box-content">
+                                <span class="info-box-text">တိုင်းဒေသကြီး/ပြည်နယ်ကုဒ် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.DivisionCode
+                                </span>
+                            </div>
+                            <div class="info-box-content">
+                                <span class="info-box-text">ဘဏ်ခွဲအမည် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.TownName
+                                </span>
+                            </div>
+                            <div class="info-box-content">
+                                <span class="info-box-text">တိုင်းဒေသကြီးအမည် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.DivisionName
+                                </span>
+                            </div>
+                        }
+                        else if (ViewBag.AccountType == "User")
+                        {
+                            <div class="info-box-content">
+                                <span class="info-box-text">မြို့နယ်ကုဒ် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.TownCode
+                                </span>
+                            </div>
+                            <div class="info-box-content">
+                                <span class="info-box-text">ဘဏ်ခွဲအမည် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.TownName
+                                </span>
+                            </div>
+                            <div class="info-box-content">
+                                <span class="info-box-text">တိုင်းဒေသကြီးအမည် :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.DivisionName
+                                </span>
+                            </div>
+                        }
+                        else if (ViewBag.AccountType == "Head Admin")
+                        {
+                            <div class="info-box-content">
+                                <span class="info-box-text">UserName :</span>
+                                <span class="info-box-number">
+                                    @ViewBag.DivisionName
+                                </span>
+                            </div>
+                        }
+
+                        @*<div class="info-box-content">
+            <span class="info-box-text">UserName :</span>
+            <span class="info-box-number">
+                @ViewBag.Department
+            </span>
+        </div>*@
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <!--<div class="col-12 text-end">
+                    <div class="info-box mb-4">
+                        <span class="info-box-icon bg-danger elevation-1">
+                            <i class="fa-solid fa-map-location"></i>
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">မြို့နယ် :</span>
+                            <span class="info-box-number">@ViewBag.TownshipName</span>
+                        </div>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">မြို့နယ်ကုဒ် :</span>
+                            <span class="info-box-number">@ViewBag.TownshipID</span>
+                        </div>-->
+                        <!-- /.info-box-content -->
+                    <!--</div>-->
+                    <!-- /.info-box -->
+                <!--</div>-->
+                <!-- /.col -->
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+
+                <div class="col-12 text-end">
+                    <div class="info-box mb-4">
+                        <span class="info-box-icon bg-success elevation-1">
+                            <i class="fa-solid fa-list-ol"></i>
+                        </span>
+
+                        
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+<!-- /.content -->

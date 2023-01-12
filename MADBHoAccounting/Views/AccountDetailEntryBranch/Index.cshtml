@@ -1,0 +1,181 @@
+﻿@model IEnumerable<MADBHoAccounting.ViewModels.TB_AccountDetailEntry>
+
+@{
+    ViewData["Title"] = "Index";
+
+    //Pager pager = new Pager();
+
+    //int pageNo = 0;
+
+    //if (ViewBag.Pager != null)
+    //{
+    //    pager = ViewBag.Pager;
+    //    pageNo = pager.CurrentPage;
+    //}
+    decimal debittotal = 0;
+    decimal credittotal = 0;
+}
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    debittotal += item.DebitAmount ?? 0;
+    credittotal += item.CreditAmount ?? 0;
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Daily Usage</h1>
+    </div>
+    <div class="col-sm-3">
+        <h5 class="text-primary">Debit Total : <input id="debitTotal" type="text" style="text-align:right" class="form-control" value="@debittotal" /></h5>
+    </div>
+    <div class="col-sm-3">
+        <h5 class="text-danger">Credit Total : <input id="creditTotal" type="text" style="text-align:right" class="form-control" value="@credittotal" /></h5>
+    </div>
+</div>
+
+@if (ViewBag.AccountType == "Admin" || ViewBag.AccountType == "User")
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+}
+else
+{
+
+    //nothing
+}
+
+<div class="table-responsive">
+    <table class="table table-responsive w-100" id="accDetailT">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TownCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TownName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiviSionName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubsiHeadName)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.MiniAccount)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.MainHeadName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DebitAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GroupNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TownCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TownName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiviSionName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubsiHeadName)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.MiniAccount)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainHeadName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DebitAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreditAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroupNumber)
+                    </td>
+                    @if (ViewBag.AccountType == "Admin" || ViewBag.AccountType == "User")
+                    {
+                        <td>
+                            @*<a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>*@
+                            <div class="btn-group">
+                                <a asp-action="Create" asp-route-id="@item.AccountID" class="btn btn-sm btn-info">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.AccountID" class="btn btn-sm btn-primary ml-1">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.AccountID" class="btn btn-sm btn-danger ml-1">Delete</a>
+                            </div>
+
+                        </td>
+
+                    }
+                    else
+                    {
+
+                        //Nothing
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#accDetailT').DataTable();
+        });
+        var a = parseFloat($('#debitTotal').val());
+        var b = parseFloat($('#creditTotal').val());
+        if (a == b) {
+            $('#debitTotal').css({ 'color': 'green' });
+            $('#creditTotal').css({ 'color': 'green' });
+        }
+        else {
+            $('#debitTotal').css({ 'color': 'red' });
+            $('#creditTotal').css({ 'color': 'red' });
+        }
+    </script>
+}

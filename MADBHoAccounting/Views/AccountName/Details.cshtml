@@ -1,0 +1,60 @@
+﻿@model MADBHoAccounting.Models.TbAccountName
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+        <div class="p-3 text-center text-white" style="background-color: #224B0C">Account Details Information</div>
+        <div class="row shadow m-0 p-0">
+            <dl class="row mt-2">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.AccountCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.AccountCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.SubsiHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.SubsiHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.MainHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.MainHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.AccountNature)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.AccountNature)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.OrderCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.OrderCode)
+                </dd>                
+            </dl>
+
+        </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AccountId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

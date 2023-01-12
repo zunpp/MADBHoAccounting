@@ -1,0 +1,131 @@
+﻿@model IEnumerable<MADBHoAccounting.ViewModels.TB_FinancialYear>
+
+@{
+    ViewData["Title"] = "Index";
+
+    //Pager pager = new Pager();
+
+    //int pageNo = 0;
+
+    //if (ViewBag.Pager != null)
+    //{
+    //    pager = ViewBag.Pager;
+    //    pageNo = pager.CurrentPage;
+    //}
+}
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Financial Year</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div>
+    @*<button>Prev</button>*@
+    @*Page @pager.CurrentPage of @pager.TotalPages*@
+    @*<button>Next</button>*@
+</div>
+
+@*<partial name="_pager" Model="@pager" />*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialMiddleDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActiveFinancialYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAccountClosed)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsUploaded)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinancialStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinancialMiddleDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinancialEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinancialYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActiveFinancialYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAccountClosed)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsUploaded)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>*@
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@item.FinancialYearPkid" class="btn btn-sm btn-info">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.FinancialYearPkid" class="btn btn-sm btn-primary ml-1">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.FinancialYearPkid" class="btn btn-sm btn-danger ml-1">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#joinTb').DataTable();
+        });
+
+    </script>
+}*@
+@*<partial name="_pager" Model="@pager" />*@

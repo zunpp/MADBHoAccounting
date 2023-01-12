@@ -1,0 +1,82 @@
+﻿@model MADBHoAccounting.ViewModels.TB_AccountDetailEntry
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+        <div class="p-3 text-center text-white" style="background-color: #224B0C">General Head Details Information</div>
+        <div class="row shadow m-0 p-0">
+            <dl class="row mt-2">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.TownCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.TownCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.TownName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.TownName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.DiviSionName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.DiviSionName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.AccountCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.AccountCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.SubsiHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.SubsiHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.MainHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.MainHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.DebitAmount)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.DebitAmount)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.CreditAmount)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.CreditAmount)
+                </dd>                
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.Date)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.Date)
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>
+<div>
+    <a asp-action="Create" asp-route-id="@Model.AccountID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

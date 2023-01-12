@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 style="text-align:center">All Yearly Reports</h3>
+
+<div class="col-lg-3 col-sm-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <input type="radio" id="equalID" name="equalConditions" value="Equal">
+        <label for="equal">Equal</label>&nbsp; &nbsp;
+        <input type="radio" id="uptoID" name="uptoConditions" value="Upto">
+        <label for="upto">Upto</label>&nbsp; &nbsp;
+        <input type="radio" id="betweenID" name="betweenConditions" value="Between">
+        <label for="between">Between</label><br><br>
+        <label>Start Date</label>
+        <input type="date" id="startDate" name="StartDate">
+        <br><br>
+        <label>End Date</label>
+        <input type="date" id="endDate" name="EndDate">
+        <br><br>
+        @*<label class="control-label">Report Specific</label>*@
+        <label>Report Type</label>
+        @*<label class="control-label">Report Types</label>*@
+        <select class="form-select form-control" required>
+            <option value=""> ရွေးချယ်ရန် </option>
+            <option value="">နောက်ဆက်တွဲ(၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၂</option>
+            <option value="">နောက်ဆက်တွဲ-(၂/၁)</option>
+            <option value="">နောက်ဆက်တွဲ-(၂/၂)</option>
+            <option value="">နောက်ဆက်တွဲ-(၂/၃)</option>
+            <option value="">နောက်ဆက်တွဲ-(၂/၄)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၂)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၃)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၄)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၅)</option>
+            <option value="">နောက်ဆက်တွဲ-၂/(က/၆)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(က)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(က/၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(က/၂)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(က/၃)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၃)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၅)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၅-၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၅-၂)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၉-၁)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ခ/၉-၂)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ဂ)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ဃ)</option>
+            <option value="">နောက်ဆက်တွဲ-၃(ဃ) ပူးတွဲ</option>
+            <option value="">နောက်ဆက်တွဲ-၄</option>
+        </select>
+    </div>
+</div>
+
+<a class="btn btn-primary" href="../YearlyReports/Print" target="_blank">Print</a>

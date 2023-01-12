@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 style="text-align:center">All Monthly Reports</h3>
+
+<div class="col-lg-3 col-sm-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <input type="radio" id="equalID" name="equalConditions" value="Equal">
+        <label for="equal">Equal</label>&nbsp; &nbsp;
+        <input type="radio" id="uptoID" name="uptoConditions" value="Upto">
+        <label for="upto">Upto</label>&nbsp; &nbsp;
+        <input type="radio" id="betweenID" name="betweenConditions" value="Between">
+        <label for="between">Between</label><br><br>
+        <label>Start Date</label>
+        <input type="date" id="startDate" name="StartDate">
+        <br><br>
+        <label>End Date</label>
+        <input type="date" id="endDate" name="EndDate">
+        <br><br>
+        @*<label class="control-label">Report Specific</label>*@
+        <label>Report Type</label>
+        @*<label class="control-label">Report Types</label>*@
+        <select class="form-select form-control" required>
+            <option value=""> ရွေးချယ်ရန် </option>
+            <option value="">Annexure (1)</option>
+            <option value="">Annexure -2(A)</option>
+            <option value="">Annexure -2 A(1)</option>
+            <option value="">Annexure -2 A(1-2)</option>
+            <option value="">Annexure -2-A(2)-1</option>
+            <option value="">Annexure -2-A(2)-2</option>
+            <option value="">Annexure -2-A(3)-1</option>
+            <option value="">Annexure  ( 2-B )</option>
+            <option value="">Annexure  ( 2-B ) (1)</option>
+            <option value="">Annexure  ( 2-B ) (2)</option>
+            <option value="">Annexure  ( 2-B ) (3)</option>
+            <option value="">Annexure  ( 2-B ) (4)</option>
+            <option value="">Annexure -3(A)</option>
+            <option value="">Annexure -3(A)-1</option>
+            <option value="">Annexure -3(A)-2</option>
+            <option value="">Annexure -3B(1)</option>
+            <option value="">ပူးတွဲ (၁)(3B-1)</option>
+            <option value="">ပူးတွဲ (၂)(3B-1)</option>
+            <option value="">ပူးတွဲ (၃)(3B-1)</option>
+            <option value="">ပူးတွဲ (၄)3B(1)</option>
+            <option value="">Annexure -3B(2)</option>
+            <option value="">ပူးတွဲ (၁)(3B-2)</option>
+            <option value="">ပူးတွဲ (၂)(3B-2)</option>
+            <option value="">ပူးတွဲ (၃)(3B-2)</option>
+            <option value="">ပူးတွဲ (၄)3B(2)</option>
+            <option value="">Annexure -3G(1)</option>
+            <option value="">ပူးတွဲ (၁)(3G-1)</option>
+            <option value="">ပူးတွဲ (၂)(3G-1)</option>
+            <option value="">ပူးတွဲ (၃)(3G-1)</option>
+            <option value="">ပူးတွဲ (၄)(3G-1)</option>
+            <option value="">Annexure -3G(2)</option>
+            <option value="">ပူးတွဲ (၁)(3G-2)</option>
+            <option value="">ပူးတွဲ (၂)(3G-2)</option>
+            <option value="">ပူးတွဲ (၃)(3G-2)</option>
+            <option value="">ပူးတွဲ (၄)(3G-2)</option>
+            <option value="">နောက်ဆက်တွဲ-၄(က)</option>
+            <option value="">Annexure -4</option>
+            <option value="">Annexure -5</option>
+            <option value="">Annexure -5(A)</option>
+            <option value="">နောက်ဆက်တွဲ-၈</option>
+            <option value="">နောက်ဆက်တွဲ-၁၃</option>
+            <option value="">နောက်ဆက်တွဲ-၁၆</option>
+            <option value="">နောက်ဆက်တွဲ-၁၇</option>
+        </select>
+    </div>
+</div>
+
+<a class="btn btn-primary" href="../MonthlyReports/Print" target="_blank">Print</a>

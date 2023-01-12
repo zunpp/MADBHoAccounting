@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 style="text-align:center">All General Reports</h3>
+
+<div class="col-sm-12">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label for="gpName">Group Name</label>
+    <input type="text" id="gpID" name="groupID" value="@ViewBag.gpID " />
+    <label for="tCode">Town Code</label>
+    <input type="text" id="tID" name="tID" value="@ViewBag.tID " />
+    <label for="sdCode">State/Division Code</label>
+    <input type="text" id="sdID" name="sdID" value="@ViewBag.sdID " />
+    <form id="radioSection">
+        <input type="radio" id="equalID" name="rdo" value="equal">
+        <label for="equal">Equal</label>&nbsp; &nbsp;
+
+        <input type="radio" id="uptoID" name="rdo" value="upto">
+        <label for="upto">Upto</label>&nbsp; &nbsp;
+
+        <input type="radio" id="betweenID" name="rdo" value="between">
+        <label for="between">Between</label><br><br>
+
+        <input class="form-control" id="rdVal" hidden readonly />
+    </form>
+</div>
+
+@* Test *@
+<div class="row">
+    <div class="col-sm-4">
+        <label>Start Date</label>
+        <input type="date" id="startDate" name="StartDate" class="form-control">
+        <br><br>
+    </div>
+
+    <div class="col-sm-4">
+        <label>End Date</label>
+        <input type="date" id="endDate" name="EndDate" class="form-control">
+        <br><br>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Report Type</label>
+        <select id="TrilBalance" class="form-control">
+            <option value="" selected> ရွေးချယ်ရန် </option>
+            <option value="Trial Balance"> Trial Balance </option>
+            <option value="Day Book"> Day Book </option>
+            <option value="Income"> Income </option>
+            <option value="Expenditure"> Expenditure </option>
+            <option value="Income Progressive"> Income Progressive </option>
+            <option value="Expendicture Progressive"> Expendicture Progressive </option>
+            <option value="General Ledger"> General Ledger </option>
+            <option value="Subsi Ledger"> Subsi Ledger </option>
+            <option value="CashS croll"> CashS croll </option>
+            <option value="Transfer Scroll"> Transfer Scroll </option>
+            <option value="Clean Cash"> Clean Cash </option>
+            <option value="Balancing"> Balancing </option>
+            <option value="Entry"> Entry </option>
+        </select>
+    </div>
+
+    <div id="reportId">
+        @* Bind Data *@
+    </div>
+    @*<div>
+        <button data-href="/GeneralReports/PrintReceipt" class="btn btn-click btn-primary gradient-blue">Print</button>
+    </div>*@
+</div>
+@* Test *@
+
+<br>
+<br>
+
+<a class="btn btn-primary" href="../GeneralReports/PrintReceipt" target="_blank">Print</a>
+
+
+@section Scripts{
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                changeRdBox();
+            })
+
+            function changeRdBox() {
+                $('#radioSection input').on('change', function () {
+                    var a = ($('input[name="rdo"]:checked', '#radioSection').val());
+                    console.log("a=", a);
+                    $('#rdVal').empty().val(a);
+                    var b = ($('input[name="rdo"]:checked', '#radioSection').val());
+                    console.log("b=", b);
+                    $('#rdVal').empty().val(b)
+                    var c = ($('input[name="rdo"]:checked', '#radioSection').val());
+                    console.log("c=", c);
+                    $('#rdVal').empty().val(c)
+                    if (a == "equal") {
+                        $("#startDate").prop('disabled', true);
+                    }
+                    else if(b=="upto") {
+                        $("#startDate").prop('disabled', true);
+                    }
+                    else if (c == "between") {
+                        $("#startDate").prop('disabled', false);
+                    }
+                })
+            }
+
+            $('#TrilBalance').on('change', function () {
+                var rpType = $(this).val();
+                var sDate = $('#startDate').val();
+                var eDate = $('#endDate').val();
+                var rdVal = $('#rdVal').val();
+                var gpID = $('#gpID').val();
+                var tID = $('#tID').val();
+                var sdID = $('#sdID').val();
+                $.ajax({
+                    type: "GET",
+                    url: '/GeneralReports/GetGeneralReportResult/',
+                    data: { gpID: gpID, tID: tID, sdID: sdID, eDate: eDate, rpType: rpType, rdVal: rdVal, sDate:sDate },
+                    beforeSend: function () {
+
+                    },
+                    success: function (data) {
+                        $('#reportId').html(data);
+                    }
+                })
+            })
+            
+        </script>
+}  
+

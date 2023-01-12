@@ -1,0 +1,258 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Branch</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #d5dee0;
+            padding: 0;
+            margin: 0;
+            font-family: 'Open Sans';
+        }
+
+        a,
+        a:visited {
+            color: #555;
+            outline: none;
+            text-decoration: none;
+        }
+
+            a:hover,
+            a:focus,
+            a:visited:hover {
+                color: #22a1c4;
+                text-decoration: none;
+            }
+
+        .label-container {
+            max-width: 280px;
+            margin: 2% auto;
+        }
+
+            .label-container:nth-child(1) {
+                margin: 4% auto 2% auto;
+            }
+
+        .dropmedown select {
+            outline: none;
+            cursor: pointer;
+        }
+
+        .dropmedown {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            height: 36px;
+            line-height: 36px;
+            color: #444;
+        }
+
+            .dropmedown:before,
+            .dropmedown:after {
+                content: '';
+                position: absolute;
+                z-index: 2;
+                top: 13px;
+                right: 12px;
+                width: 0;
+                height: 0;
+                line-height: 36px;
+                border: 4px dashed;
+                border-color: #888 transparent;
+                pointer-events: none;
+            }
+
+            .dropmedown:before {
+                border-bottom-style: solid;
+                border-top: none;
+            }
+
+            .dropmedown:after {
+                margin-top: 8px;
+                border-top-style: solid;
+                border-bottom: none;
+            }
+
+        .dropdown-select {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: 6px 8px 6px 10px;
+            height: 36px;
+            line-height: 23px;
+            font-size: 15px;
+            color: #4e4c4c;
+            text-shadow: 0 1px #fff;
+            background: #f2f2f2;
+            background: rgba(0, 0, 0, 0) !important;
+            border: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+            .dropdown-select > option {
+                margin: 3px;
+                padding: 6px 8px;
+                text-shadow: none;
+                background: #f8f8f8;
+                outline: none;
+                border: 0;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+        .col {
+            /*margin-top: 15%;*/
+            margin: auto;
+            width: 60%;
+            border: 1px solid #aeb9bb;
+            box-shadow: -2px 2px #bac5c7;
+            margin-top: 11%;
+            padding-bottom: 10px;
+        }
+
+        /*BTN STYLE*/
+        .btn {
+            background-color: #2b580c;
+            border: none;
+            padding: 12px 17px;
+            text-align: center;
+            font-size: 16px;
+            transition: 0.3s;
+            border-radius: 35px;
+        }
+
+            .btn:hover {
+                background-color: #3e8e41;
+                color: white;
+                cursor: pointer;
+            }
+
+        .btn-region {
+            /*margin: 0 auto;
+                    display: table*/
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*BTN STYLE*/
+    </style>
+
+</head>
+
+<body>
+    <div class="col">
+
+        <div class="label-container">
+            <div class="dropmedown">
+                <select id="stateDivision" class="dropdown-select">
+                    <option value=""> ဘဏ်ခွဲတည်ရှိရာ တိုင်းဒေသကြီး </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="label-container">
+            <div class="dropmedown">
+                <select id="townshipName" class="dropdown-select">
+                    <option value=""> ဘဏ်ခွဲတည်ရှိရာမြို့နယ် </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="label-container">
+            <input type="text" id="townshipId" class="form-control" placeholder="ကျေးရွာကုဒ်" readonly />
+        </div>
+
+        <div class="btn-region">
+            <a id="button" class="btn" style="color:white">အတည်ပြုသည်</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            stateDivision();
+        });
+
+        function stateDivision() {
+            $.ajax({
+                type: "GET",
+                url: '/Home/StateDivision',
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    if (data != null) {
+                        $('#stateDivision').empty();
+                        $('#stateDivision').append($('<option value="">ဘဏ်ခွဲတည်ရှိရာ တိုင်းဒေသကြီး</option>'));
+                        for (i = 0; i < data.length; i++) {
+                            $('#stateDivision').append($('<option value="' + data[i].stateDivisionCode + '">' + data[i].stateDivision + '</option>'));
+                        }
+                    }
+                }
+            })
+        }
+
+        $('#stateDivision').on('change', function () {
+            var stateId = $(this).val();
+            //alert("stateId " + stateId)
+
+            $.ajax({
+                type: "GET",
+                url: '/Home/TownShipName',
+                data: { stateId: stateId },
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    if (data != null) {
+                        $('#townshipName').empty().append($('<option value=""> ဘဏ်ခွဲတည်ရှိရာမြို့နယ် </option>'));
+                        for (i = 0; i < data.length; i++) {
+                            $('#townshipName').append($('<option value="' + data[i].townshipCode + '">' + data[i].township + '</option>'));
+                        }
+                    }
+                }
+            })
+        })
+
+        $('#townshipName').on('change', function () {
+            var tspId = $(this).val();
+            //alert("tspId " + tspId)
+            $('#townshipId').val(tspId);
+        })
+
+        $("#button").click(function () {
+            var townshipid = $("#townshipName").val();
+            if (townshipid == null || townshipid == "") {
+                return false;
+            }
+            else {
+                window.location = '/AccountLogin/Branch?tspid=' + townshipid;
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

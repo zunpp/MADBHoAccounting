@@ -1,0 +1,303 @@
+﻿@model MADBHoAccounting.ViewModels.TB_AccountDetailEntry
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div>
+    <div class="text-center p-3 text-white" style="background-color: #224B0C">Daily Uasge Entry Form</div>
+    <div class="row shadow m-0 p-0">
+        <div class="col-1">
+
+        </div>
+        <div class="col-md-10">
+            <form asp-action="Create" id="accSub">
+                <input asp-for="AccountID" hidden />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="TownCode" class="control-label">Town Code</label>
+                            <input asp-for="TownCode" id="towncode" class="form-control" name="townCode" maxlength="4" required />
+                            <span asp-validation-for="TownCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="TownName" class="control-label">Town Name</label>
+                            <input asp-for="TownName" id="townname" class="form-control" name="townName" readonly required />
+                            <span asp-validation-for="TownName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DiviSionName" class="control-label">DiviSion Name</label>
+                            <input asp-for="DiviSionName" id="divisionname" class="form-control" name="divisionName" readonly required />
+                            <span asp-validation-for="DiviSionName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AccountCode" class="control-label">Account Code</label>
+                            <input asp-for="AccountCode" id="accountcode" class="form-control" name="accountCode" required />
+                            <span asp-validation-for="AccountCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="SubsiHeadName" class="control-label">Subsi Head Name</label>
+                            <input asp-for="SubsiHeadName" id="subsiheadname" autocomplete="off" name="subsiHeadName" class="form-control" readonly required />
+                            @*<div id="accountsubtitle" class="position-absolute" style="height: 210px; overflow: auto">
+                                </div>*@
+                            <span asp-validation-for="SubsiHeadName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="MainHeadName" class="control-label">Main Head Name</label>
+                            <input asp-for="MainHeadName" id="mainheadname" class="form-control" name="mainHeadName" readonly required />
+                            <span asp-validation-for="MainHeadName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DebitAmount" class="control-label">Debit Amount</label>
+                            <input type="number" asp-for="DebitAmount" maxlength="20" class="form-control" name="debitAmount" required />
+                            <span asp-validation-for="DebitAmount" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="CreditAmount" class="control-label">Credit Amount</label>
+                            <input type="number" asp-for="CreditAmount" maxlength="20" class="form-control" required />
+                            <span asp-validation-for="CreditAmount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="GroupNumber" class="control-label">Group Number</label>
+                            <input asp-for="GroupNumber" class="form-control" name="groupNumber" value="@ViewBag.GroupName" id="groupNumber" readonly required />
+                            <span asp-validation-for="GroupNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Date" class="control-label">Date</label>
+                            <input asp-for="Date" id="date" class="form-control" name="date" type="date" required />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @*<div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="LoanYear" class="control-label">Loan Year</label>
+                                <input asp-for="LoanYear" class="form-control" />
+                                <span asp-validation-for="LoanYear" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="LoanType" class="control-label"> Loan Type</label>
+                                <input asp-for="LoanType" class="form-control" />
+                                <span asp-validation-for="LoanType" class="text-danger"></span>
+                            </div>
+                        </div>*@
+
+                </div>
+
+                <div class="form-group my-3 text-center">
+                    <input type="submit" value="Save" class="btn text-white" style="background-color: #224B0C" />
+                </div>
+            </form>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+
+</div>
+
+<h4 class="text-dark" hidden>Daily Uasge Entry Form</h4>
+
+<div class="row mt-4" hidden>
+    <div class="col-1">
+
+    </div>
+    <div class="col-md-10">
+        <form asp-action="Create" id="accSub">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" class="form-control" asp-for="AccountID" readonly />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="TownCode" class="control-label">Town Code</label>
+                        <input asp-for="TownCode" id="towncode" class="form-control" name="townCode" />
+                        <span asp-validation-for="TownCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="TownName" class="control-label">Town Name</label>
+                        <input asp-for="TownName" id="townname" class="form-control" name="townName" readonly />
+                        <span asp-validation-for="TownName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DiviSionName" class="control-label">DiviSion Name</label>
+                        <input asp-for="DiviSionName" id="divisionname" class="form-control" name="diviSionName" readonly />
+                        <span asp-validation-for="DiviSionName" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AccountCode" class="control-label">Account Code</label>
+                        <input asp-for="AccountCode" id="accountcode" class="form-control" name="accountCode" />
+                        <span asp-validation-for="AccountCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SubsiHeadName" class="control-label">Subsi Head Name</label>
+                        <input asp-for="SubsiHeadName" id="subsiheadname" autocomplete="off" name="subsiHeadName" class="form-control" />
+                        @*<div id="accountsubtitle" class="position-absolute" style="height: 210px; overflow: auto">
+                            </div>*@
+                        <span asp-validation-for="SubsiHeadName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="MainHeadName" class="control-label">Main Head Name</label>
+                        <input asp-for="MainHeadName" id="mainheadname" class="form-control" name="mainHeadName" />
+                        <span asp-validation-for="MainHeadName" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DebitAmount" class="control-label">Debit Amount</label>
+                        <input asp-for="DebitAmount" maxlength="20" class="form-control" name="debitAmount" type="text" id="debitAmt" />
+                        <span asp-validation-for="DebitAmount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CreditAmount" class="control-label">Credit Amount</label>
+                        <input asp-for="CreditAmount" maxlength="20" class="form-control" type="text" id="creditAmt" />
+                        <span asp-validation-for="CreditAmount" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="GroupNumber" class="control-label">Group Number</label>
+                        <input asp-for="GroupNumber" class="form-control" name="groupNumber" value="@ViewBag.GroupName" />
+                        <span asp-validation-for="GroupNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label">Date</label>
+                        <input asp-for="Date" id="date" class="form-control" name="date" type="date" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group my-3 text-center">
+                <input type="submit" value="Save" class="btn text-white" style="background-color: #224B0C" />
+            </div>
+        </form>
+    </div>
+    <div class="col-1">
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#debitAmt').val('0.00')
+            $('#creditAmt').val('0.00')
+        });
+
+        $('#towncode').on('input', function () {
+            var townCode = $(this).val();
+            var groupNumber = $('#groupNumber').val();
+            $.ajax({
+                type: 'GET',
+                url: '/AccountDetailEntry/Name_Load',
+                data: { townCode: townCode, groupNumber: groupNumber },
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+                    console.log(data)
+                    $.each(data, function (key, value) {
+                        if (key == "diviSionName") {
+                            $("#divisionname").val(value);
+                        }
+                        else if (key == "townName") {
+                            $("#townname").val(value);
+                        }
+                    })
+                }
+            })
+        })
+
+        $('#accountcode').on('input', function () {
+            var accountCode = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '/AccountDetailEntry/Account_Load',
+                data: { accountCode: accountCode },
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+                    console.log(data)
+                    $.each(data, function (key, value) {
+                        if (key == "subsiHeadName") {
+                            $("#subsiheadname").val(value);
+                        }
+                        else if (key == "mainHeadName") {
+                            $("#mainheadname").val(value);
+                        }
+                    })
+                }
+            })
+        })
+
+    </script>
+}
+

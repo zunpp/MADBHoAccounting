@@ -1,0 +1,87 @@
+﻿@model MADBHoAccounting.ViewModels.TB_AccountDetailEntry
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TB_AccountDetailEntry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TownCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TownCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TownName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TownName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DiviSionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DiviSionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AccountCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsiHeadName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubsiHeadName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MiniAccount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MiniAccount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MainHeadName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MainHeadName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DebitAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DebitAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreditAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreditAmount)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GroupNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GroupNumber)
+        </dd>*@
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AccountID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

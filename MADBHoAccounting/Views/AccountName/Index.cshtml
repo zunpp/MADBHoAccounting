@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MADBHoAccounting.Models.TbAccountName>
+
+@{
+    ViewData["Title"] = "Index";
+
+    //Pager pager = new Pager();
+
+    //int pageNo = 0;
+
+    //if (ViewBag.Pager != null)
+    //{
+    //    pager = ViewBag.Pager;
+    //    pageNo = pager.CurrentPage;
+    //}
+}
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Account Name List</h1>
+
+@if (ViewBag.AccountType == "Admin")
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+}
+else
+{
+
+    //nothing
+}
+
+@*<partial name="_pager" Model="@pager" />*@
+
+<table class="table table-responsive w-100" id="accNamelT">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubsiHeadName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainHeadName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderCode)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int rowNo = 0;
+        }
+        @if (Model.Count() > 0)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(rowNo += 1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubsiHeadName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainHeadName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNature)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderCode)
+                    </td>
+                    @if (ViewBag.AccountType == "Admin")
+                    {
+                        <td>                            
+                            <div class="btn-group">
+                                <a asp-action="Create" asp-route-id="@item.AccountId" class="btn btn-sm btn-info">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.AccountId" class="btn btn-sm btn-primary ml-1">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.AccountId" class="btn btn-sm btn-danger ml-1">Delete</a>
+                            </div>
+
+                        </td>
+
+                    }
+                    else
+                    {
+
+                        //Nothing
+                    }
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+@*<partial name="_pager" Model="@pager" />*@
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#accNamelT').DataTable();
+        });
+
+    </script>
+}

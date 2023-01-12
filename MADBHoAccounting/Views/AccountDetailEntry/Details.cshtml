@@ -1,0 +1,186 @@
+﻿@model MADBHoAccounting.ViewModels.TB_AccountDetailEntry
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@*<div>
+        <h4>TB_AccountDetailEntry</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.TownCode)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.TownCode)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.TownName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.TownName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.DiviSionName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.DiviSionName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.AccountCode)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.AccountCode)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.SubsiHeadName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.SubsiHeadName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.MiniAccount)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.MiniAccount)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.MainHeadName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.MainHeadName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.DebitAmount)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.DebitAmount)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.CreditAmount)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.CreditAmount)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.GroupNumber)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.GroupNumber)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.IsDeleted)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
+        </dl>
+    </div>*@
+
+<div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+        <div class="p-3 text-center text-white" style="background-color: #224B0C">General Head Details Information</div>
+        <div class="row shadow m-0 p-0">
+            <dl class="row mt-2">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.TownCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.TownCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.TownName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.TownName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.DiviSionName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.DiviSionName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.AccountCode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.AccountCode)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.SubsiHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.SubsiHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.MainHeadName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.MainHeadName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.DebitAmount)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.DebitAmount)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.CreditAmount)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.CreditAmount)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.GroupNumber)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.GroupNumber)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(Model => Model.Date)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(Model => Model.Date)
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>
+<div>
+    <a asp-action="Create" asp-route-id="@Model.AccountID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

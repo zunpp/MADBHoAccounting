@@ -109,7 +109,7 @@ namespace MADBHoAccounting.Controllers
         //        return File(pdf, mimetype, "Users_report." + extension);
         //    }
         //}
-
+        [HttpGet]
         public IActionResult PrintReceipt()
         {
             string renderFormat = "PDF";
@@ -126,6 +126,7 @@ namespace MADBHoAccounting.Controllers
                 var pdf = report.Render(renderFormat);
                 return File(pdf, mimetype, "Users_report." + extension);
             }
+         
         }
 
 

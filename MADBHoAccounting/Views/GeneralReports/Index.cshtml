@@ -64,68 +64,94 @@
         @* Bind Data *@
     </div>
     @*<div>
-        <button data-href="/GeneralReports/PrintReceipt" class="btn btn-click btn-primary gradient-blue">Print</button>
-    </div>*@
+            <button data-href="/GeneralReports/PrintReceipt" class="btn btn-click btn-primary gradient-blue">Print</button>
+        </div>*@
 </div>
 @* Test *@
 
 <br>
 <br>
 
-<a class="btn btn-primary" href="../GeneralReports/PrintReceipt" target="_blank">Print</a>
+@*<a class="btn btn-primary" href="../GeneralReports/PrintReceipt" data-target="#pdfContainer">Print</a>*@
+<a class="btn btn-primary" onclick="Preview()" data-target="#pdfContainer">Print</a>
+
+<div class="box" style=" height:700px; background-color:gray;" id="pdfContainer">
+    <object id="pdfviewer" data="" type="application/pdf" style="width:100%;height:100%;"></object>
+
+</div>
 
 
 @section Scripts{
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-            $(document).ready(function () {
-                changeRdBox();
+        $(document).ready(function () {
+            changeRdBox();
+        })
+
+        function changeRdBox() {
+            $('#radioSection input').on('change', function () {
+                var a = ($('input[name="rdo"]:checked', '#radioSection').val());
+                console.log("a=", a);
+                $('#rdVal').empty().val(a);
+                var b = ($('input[name="rdo"]:checked', '#radioSection').val());
+                console.log("b=", b);
+                $('#rdVal').empty().val(b)
+                var c = ($('input[name="rdo"]:checked', '#radioSection').val());
+                console.log("c=", c);
+                $('#rdVal').empty().val(c)
+                if (a == "equal") {
+                    $("#startDate").prop('disabled', true);
+                }
+                else if (b == "upto") {
+                    $("#startDate").prop('disabled', true);
+                }
+                else if (c == "between") {
+                    $("#startDate").prop('disabled', false);
+                }
             })
+        }
 
-            function changeRdBox() {
-                $('#radioSection input').on('change', function () {
-                    var a = ($('input[name="rdo"]:checked', '#radioSection').val());
-                    console.log("a=", a);
-                    $('#rdVal').empty().val(a);
-                    var b = ($('input[name="rdo"]:checked', '#radioSection').val());
-                    console.log("b=", b);
-                    $('#rdVal').empty().val(b)
-                    var c = ($('input[name="rdo"]:checked', '#radioSection').val());
-                    console.log("c=", c);
-                    $('#rdVal').empty().val(c)
-                    if (a == "equal") {
-                        $("#startDate").prop('disabled', true);
-                    }
-                    else if(b=="upto") {
-                        $("#startDate").prop('disabled', true);
-                    }
-                    else if (c == "between") {
-                        $("#startDate").prop('disabled', false);
-                    }
-                })
-            }
+        $('#TrilBalance').on('change', function () {
+            var rpType = $(this).val();
+            var sDate = $('#startDate').val();
+            var eDate = $('#endDate').val();
+            var rdVal = $('#rdVal').val();
+            var gpID = $('#gpID').val();
+            var tID = $('#tID').val();
+            var sdID = $('#sdID').val();
+            $.ajax({
+                type: "GET",
+                url: '/GeneralReports/GetGeneralReportResult/',
+                data: { gpID: gpID, tID: tID, sdID: sdID, eDate: eDate, rpType: rpType, rdVal: rdVal, sDate: sDate },
+                beforeSend: function () {
 
-            $('#TrilBalance').on('change', function () {
-                var rpType = $(this).val();
-                var sDate = $('#startDate').val();
-                var eDate = $('#endDate').val();
-                var rdVal = $('#rdVal').val();
-                var gpID = $('#gpID').val();
-                var tID = $('#tID').val();
-                var sdID = $('#sdID').val();
-                $.ajax({
-                    type: "GET",
-                    url: '/GeneralReports/GetGeneralReportResult/',
-                    data: { gpID: gpID, tID: tID, sdID: sdID, eDate: eDate, rpType: rpType, rdVal: rdVal, sDate:sDate },
-                    beforeSend: function () {
-
-                    },
-                    success: function (data) {
-                        $('#reportId').html(data);
-                    }
-                })
+                },
+                success: function (data) {
+                    $('#reportId').html(data);
+                }
             })
-            
-        </script>
-}  
+        })
+        function Preview() {
+            var url = '/GeneralReports/PrintReceipt';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = function (e) {
+                if (this.status == 200) {
+                    $('#pdfContainer').show();
+                    console.log("response :" + this.response);
+                    var blob = new Blob([this.response], { type: "application/pdf" });
+                    $("#pdfviewer").attr("data", window.URL.createObjectURL(blob));
+
+                    //var link=document.createElement('a');
+                    //link.href=window.URL.createObjectURL(blob);
+                    //link.download="Report_"+new Date()+".pdf";
+                    //link.click();
+                }
+            };
+            xhr.send();
+        }
+
+    </script>
+}
 

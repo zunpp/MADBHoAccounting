@@ -3,8 +3,254 @@
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections />
-        <Tables />
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=localhost;Initial Catalog=MADBHoAccounting_Online;User ID=madbadmin;Password=@dmin123" IsAppSettingsProperty="false" Modifier="Assembly" Name="MADBHoAccounting_OnlineConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwTribalanceTableAdapter" GeneratorDataComponentClassName="vwTribalanceTableAdapter" Name="vwTribalance" UserDataComponentName="vwTribalanceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwTribalance" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MainHead, Debit, Credit FROM dbo.vwTribalance</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MainHead" DataSetColumn="MainHead" />
+              <Mapping SourceColumn="Debit" DataSetColumn="Debit" />
+              <Mapping SourceColumn="Credit" DataSetColumn="Credit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwDayBookTableAdapter" GeneratorDataComponentClassName="vwDayBookTableAdapter" Name="vwDayBook" UserDataComponentName="vwDayBookTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwDayBook" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MainHead, Debit, Credit FROM dbo.vwDayBook</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MainHead" DataSetColumn="MainHead" />
+              <Mapping SourceColumn="Debit" DataSetColumn="Debit" />
+              <Mapping SourceColumn="Credit" DataSetColumn="Credit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwIncomeTableAdapter" GeneratorDataComponentClassName="vwIncomeTableAdapter" Name="vwIncome" UserDataComponentName="vwIncomeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwIncome" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SubsiHead, DuringMonth, EndOfMonth FROM dbo.vwIncome</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SubsiHead" DataSetColumn="SubsiHead" />
+              <Mapping SourceColumn="DuringMonth" DataSetColumn="DuringMonth" />
+              <Mapping SourceColumn="EndOfMonth" DataSetColumn="EndOfMonth" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwExpendictureTableAdapter" GeneratorDataComponentClassName="vwExpendictureTableAdapter" Name="vwExpendicture" UserDataComponentName="vwExpendictureTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwExpendicture" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SubsiHead, DuringMonth, EndOfMonth FROM dbo.vwExpendicture</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SubsiHead" DataSetColumn="SubsiHead" />
+              <Mapping SourceColumn="DuringMonth" DataSetColumn="DuringMonth" />
+              <Mapping SourceColumn="EndOfMonth" DataSetColumn="EndOfMonth" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwIncomeProgressiveTableAdapter" GeneratorDataComponentClassName="vwIncomeProgressiveTableAdapter" Name="vwIncomeProgressive" UserDataComponentName="vwIncomeProgressiveTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwIncomeProgressive" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DivisionCode, DiviSionName, TownOrderCode, TownName, Int_SLC, Int_STL, Int_LTL, Int_Overdraft, Int_LSL, Int_LTRS, Int_LRS_LTL_JICA, Int_LRS_STL_JICA, Int_MEB_LTL, Int_MEB_STL, PenInt_SLC, PenInt_ST, PenInt_LT, PenInt_LS, PenIntLTRS, PenInt_LRS_LTL_JICA, PenInt_LRS_STL_JICA, PenInt_LRS_LTL_MEB, PenInt_LRS_STL_MEB, Misc, FeeAndCommission, Int_Covid19, PenInt_Covid19 FROM dbo.vwIncomeProgressive</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DivisionCode" DataSetColumn="DivisionCode" />
+              <Mapping SourceColumn="DiviSionName" DataSetColumn="DiviSionName" />
+              <Mapping SourceColumn="TownOrderCode" DataSetColumn="TownOrderCode" />
+              <Mapping SourceColumn="TownName" DataSetColumn="TownName" />
+              <Mapping SourceColumn="Int_SLC" DataSetColumn="Int_SLC" />
+              <Mapping SourceColumn="Int_STL" DataSetColumn="Int_STL" />
+              <Mapping SourceColumn="Int_LTL" DataSetColumn="Int_LTL" />
+              <Mapping SourceColumn="Int_Overdraft" DataSetColumn="Int_Overdraft" />
+              <Mapping SourceColumn="Int_LSL" DataSetColumn="Int_LSL" />
+              <Mapping SourceColumn="Int_LTRS" DataSetColumn="Int_LTRS" />
+              <Mapping SourceColumn="Int_LRS_LTL_JICA" DataSetColumn="Int_LRS_LTL_JICA" />
+              <Mapping SourceColumn="Int_LRS_STL_JICA" DataSetColumn="Int_LRS_STL_JICA" />
+              <Mapping SourceColumn="Int_MEB_LTL" DataSetColumn="Int_MEB_LTL" />
+              <Mapping SourceColumn="Int_MEB_STL" DataSetColumn="Int_MEB_STL" />
+              <Mapping SourceColumn="PenInt_SLC" DataSetColumn="PenInt_SLC" />
+              <Mapping SourceColumn="PenInt_ST" DataSetColumn="PenInt_ST" />
+              <Mapping SourceColumn="PenInt_LT" DataSetColumn="PenInt_LT" />
+              <Mapping SourceColumn="PenInt_LS" DataSetColumn="PenInt_LS" />
+              <Mapping SourceColumn="PenIntLTRS" DataSetColumn="PenIntLTRS" />
+              <Mapping SourceColumn="PenInt_LRS_LTL_JICA" DataSetColumn="PenInt_LRS_LTL_JICA" />
+              <Mapping SourceColumn="PenInt_LRS_STL_JICA" DataSetColumn="PenInt_LRS_STL_JICA" />
+              <Mapping SourceColumn="PenInt_LRS_LTL_MEB" DataSetColumn="PenInt_LRS_LTL_MEB" />
+              <Mapping SourceColumn="PenInt_LRS_STL_MEB" DataSetColumn="PenInt_LRS_STL_MEB" />
+              <Mapping SourceColumn="Misc" DataSetColumn="Misc" />
+              <Mapping SourceColumn="FeeAndCommission" DataSetColumn="FeeAndCommission" />
+              <Mapping SourceColumn="Int_Covid19" DataSetColumn="Int_Covid19" />
+              <Mapping SourceColumn="PenInt_Covid19" DataSetColumn="PenInt_Covid19" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwExpendictureProgressiveTableAdapter" GeneratorDataComponentClassName="vwExpendictureProgressiveTableAdapter" Name="vwExpendictureProgressive" UserDataComponentName="vwExpendictureProgressiveTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwExpendictureProgressive" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DivisionCode, DiviSionName, TownOrderCode, TownName, PayAllwance, Wages, A_Cleaning, B_DWOffice, C_Wages1Persentage, D_Other, Pension, TA, Entertainment, PTT, LightingPower, RBC, RBCMEB, RBCJICA, Newspaper, UniformAllwance, T_and_H, T_and_H_MEB, T_and_H_Jica, VehicleRExpense, VRE_JICA, OfficeSupplies, OfficeSuppliesMEB, OfficeSuppliesJICA, P_S, P_S_MEB, P_S_Jica, PatrolOilLubri, Rent, RateTaxs, TrainingExpense, TrainingMEB, TrainingJICA, IntOnMEB, IntOnMEB_JICA, IntOnRSD, IntOnResidentSavingDeposit, Insurance, ExhibitionExpense, ExhibitionMEB, ExhibitionJica, MOfficeBuilding, MOfficeVehicle, MOfficeEquipment, MFurnitureOther, DEOfficeBuilding, DEOfficeVehicle, DEOfficeEquipment, DEFurEquipment, OfficeBuildingJICA, OfficeVehicleJICA, OfficeEquipmentJICA, FurnitureAndOtherJICA, Advertisement, TA_JICA, Advertisement_JICA, TA_MEB, BankingSoftwareOther, VehicleRentalExpenseMEB, Fireprevention, OtherGeneral, RBC_Covid19, MealAllowance, TravellingCovid19, OfficeSuppliesCovid19, P_S_Covid19, T_and_H_Covid19, SpecialAllowance, Accommodation, RBCSunflower, P_S_Sunflower, OfficeSuppliesSunflower, T_and_H_Sunflower, TASunflower FROM dbo.vwExpendictureProgressive</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DivisionCode" DataSetColumn="DivisionCode" />
+              <Mapping SourceColumn="DiviSionName" DataSetColumn="DiviSionName" />
+              <Mapping SourceColumn="TownOrderCode" DataSetColumn="TownOrderCode" />
+              <Mapping SourceColumn="TownName" DataSetColumn="TownName" />
+              <Mapping SourceColumn="PayAllwance" DataSetColumn="PayAllwance" />
+              <Mapping SourceColumn="Wages" DataSetColumn="Wages" />
+              <Mapping SourceColumn="A_Cleaning" DataSetColumn="A_Cleaning" />
+              <Mapping SourceColumn="B_DWOffice" DataSetColumn="B_DWOffice" />
+              <Mapping SourceColumn="C_Wages1Persentage" DataSetColumn="C_Wages1Persentage" />
+              <Mapping SourceColumn="D_Other" DataSetColumn="D_Other" />
+              <Mapping SourceColumn="Pension" DataSetColumn="Pension" />
+              <Mapping SourceColumn="TA" DataSetColumn="TA" />
+              <Mapping SourceColumn="Entertainment" DataSetColumn="Entertainment" />
+              <Mapping SourceColumn="PTT" DataSetColumn="PTT" />
+              <Mapping SourceColumn="LightingPower" DataSetColumn="LightingPower" />
+              <Mapping SourceColumn="RBC" DataSetColumn="RBC" />
+              <Mapping SourceColumn="RBCMEB" DataSetColumn="RBCMEB" />
+              <Mapping SourceColumn="RBCJICA" DataSetColumn="RBCJICA" />
+              <Mapping SourceColumn="Newspaper" DataSetColumn="Newspaper" />
+              <Mapping SourceColumn="UniformAllwance" DataSetColumn="UniformAllwance" />
+              <Mapping SourceColumn="T_and_H" DataSetColumn="T_and_H" />
+              <Mapping SourceColumn="T_and_H_MEB" DataSetColumn="T_and_H_MEB" />
+              <Mapping SourceColumn="T_and_H_Jica" DataSetColumn="T_and_H_Jica" />
+              <Mapping SourceColumn="VehicleRExpense" DataSetColumn="VehicleRExpense" />
+              <Mapping SourceColumn="VRE_JICA" DataSetColumn="VRE_JICA" />
+              <Mapping SourceColumn="OfficeSupplies" DataSetColumn="OfficeSupplies" />
+              <Mapping SourceColumn="OfficeSuppliesMEB" DataSetColumn="OfficeSuppliesMEB" />
+              <Mapping SourceColumn="OfficeSuppliesJICA" DataSetColumn="OfficeSuppliesJICA" />
+              <Mapping SourceColumn="P_S" DataSetColumn="P_S" />
+              <Mapping SourceColumn="P_S_MEB" DataSetColumn="P_S_MEB" />
+              <Mapping SourceColumn="P_S_Jica" DataSetColumn="P_S_Jica" />
+              <Mapping SourceColumn="PatrolOilLubri" DataSetColumn="PatrolOilLubri" />
+              <Mapping SourceColumn="Rent" DataSetColumn="Rent" />
+              <Mapping SourceColumn="RateTaxs" DataSetColumn="RateTaxs" />
+              <Mapping SourceColumn="TrainingExpense" DataSetColumn="TrainingExpense" />
+              <Mapping SourceColumn="TrainingMEB" DataSetColumn="TrainingMEB" />
+              <Mapping SourceColumn="TrainingJICA" DataSetColumn="TrainingJICA" />
+              <Mapping SourceColumn="IntOnMEB" DataSetColumn="IntOnMEB" />
+              <Mapping SourceColumn="IntOnMEB_JICA" DataSetColumn="IntOnMEB_JICA" />
+              <Mapping SourceColumn="IntOnRSD" DataSetColumn="IntOnRSD" />
+              <Mapping SourceColumn="IntOnResidentSavingDeposit" DataSetColumn="IntOnResidentSavingDeposit" />
+              <Mapping SourceColumn="Insurance" DataSetColumn="Insurance" />
+              <Mapping SourceColumn="ExhibitionExpense" DataSetColumn="ExhibitionExpense" />
+              <Mapping SourceColumn="ExhibitionMEB" DataSetColumn="ExhibitionMEB" />
+              <Mapping SourceColumn="ExhibitionJica" DataSetColumn="ExhibitionJica" />
+              <Mapping SourceColumn="MOfficeBuilding" DataSetColumn="MOfficeBuilding" />
+              <Mapping SourceColumn="MOfficeVehicle" DataSetColumn="MOfficeVehicle" />
+              <Mapping SourceColumn="MOfficeEquipment" DataSetColumn="MOfficeEquipment" />
+              <Mapping SourceColumn="MFurnitureOther" DataSetColumn="MFurnitureOther" />
+              <Mapping SourceColumn="DEOfficeBuilding" DataSetColumn="DEOfficeBuilding" />
+              <Mapping SourceColumn="DEOfficeVehicle" DataSetColumn="DEOfficeVehicle" />
+              <Mapping SourceColumn="DEOfficeEquipment" DataSetColumn="DEOfficeEquipment" />
+              <Mapping SourceColumn="DEFurEquipment" DataSetColumn="DEFurEquipment" />
+              <Mapping SourceColumn="OfficeBuildingJICA" DataSetColumn="OfficeBuildingJICA" />
+              <Mapping SourceColumn="OfficeVehicleJICA" DataSetColumn="OfficeVehicleJICA" />
+              <Mapping SourceColumn="OfficeEquipmentJICA" DataSetColumn="OfficeEquipmentJICA" />
+              <Mapping SourceColumn="FurnitureAndOtherJICA" DataSetColumn="FurnitureAndOtherJICA" />
+              <Mapping SourceColumn="Advertisement" DataSetColumn="Advertisement" />
+              <Mapping SourceColumn="TA_JICA" DataSetColumn="TA_JICA" />
+              <Mapping SourceColumn="Advertisement_JICA" DataSetColumn="Advertisement_JICA" />
+              <Mapping SourceColumn="TA_MEB" DataSetColumn="TA_MEB" />
+              <Mapping SourceColumn="BankingSoftwareOther" DataSetColumn="BankingSoftwareOther" />
+              <Mapping SourceColumn="VehicleRentalExpenseMEB" DataSetColumn="VehicleRentalExpenseMEB" />
+              <Mapping SourceColumn="Fireprevention" DataSetColumn="Fireprevention" />
+              <Mapping SourceColumn="OtherGeneral" DataSetColumn="OtherGeneral" />
+              <Mapping SourceColumn="RBC_Covid19" DataSetColumn="RBC_Covid19" />
+              <Mapping SourceColumn="MealAllowance" DataSetColumn="MealAllowance" />
+              <Mapping SourceColumn="TravellingCovid19" DataSetColumn="TravellingCovid19" />
+              <Mapping SourceColumn="OfficeSuppliesCovid19" DataSetColumn="OfficeSuppliesCovid19" />
+              <Mapping SourceColumn="P_S_Covid19" DataSetColumn="P_S_Covid19" />
+              <Mapping SourceColumn="T_and_H_Covid19" DataSetColumn="T_and_H_Covid19" />
+              <Mapping SourceColumn="SpecialAllowance" DataSetColumn="SpecialAllowance" />
+              <Mapping SourceColumn="Accommodation" DataSetColumn="Accommodation" />
+              <Mapping SourceColumn="RBCSunflower" DataSetColumn="RBCSunflower" />
+              <Mapping SourceColumn="P_S_Sunflower" DataSetColumn="P_S_Sunflower" />
+              <Mapping SourceColumn="OfficeSuppliesSunflower" DataSetColumn="OfficeSuppliesSunflower" />
+              <Mapping SourceColumn="T_and_H_Sunflower" DataSetColumn="T_and_H_Sunflower" />
+              <Mapping SourceColumn="TASunflower" DataSetColumn="TASunflower" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwMonthReturnTableAdapter" GeneratorDataComponentClassName="vwMonthReturnTableAdapter" Name="vwMonthReturn" UserDataComponentName="vwMonthReturnTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwMonthReturn" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT AccountCode, SubsiHead, Debit, Credit FROM dbo.vwMonthReturn</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AccountCode" DataSetColumn="AccountCode" />
+              <Mapping SourceColumn="SubsiHead" DataSetColumn="SubsiHead" />
+              <Mapping SourceColumn="Debit" DataSetColumn="Debit" />
+              <Mapping SourceColumn="Credit" DataSetColumn="Credit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_BalanceTableAdapter" GeneratorDataComponentClassName="vw_BalanceTableAdapter" Name="vw_Balance" UserDataComponentName="vw_BalanceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vw_Balance" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TownName, Balance FROM dbo.vw_Balance</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TownName" DataSetColumn="TownName" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -12,12 +258,273 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserPkid" msprop:Generator_ColumnVarNameInTable="columnUserPkid" msprop:Generator_ColumnPropNameInRow="UserPkid" msprop:Generator_ColumnPropNameInTable="UserPkidColumn" msprop:Generator_UserColumnName="UserPkid" type="xs:string" minOccurs="0" />
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
               <xs:element name="UsernameOrEmail" msprop:Generator_ColumnVarNameInTable="columnUsernameOrEmail" msprop:Generator_ColumnPropNameInRow="UsernameOrEmail" msprop:Generator_ColumnPropNameInTable="UsernameOrEmailColumn" msprop:Generator_UserColumnName="UsernameOrEmail" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwTribalance" msprop:Generator_TableClassName="vwTribalanceDataTable" msprop:Generator_TableVarName="tablevwTribalance" msprop:Generator_TablePropName="vwTribalance" msprop:Generator_RowDeletingName="vwTribalanceRowDeleting" msprop:Generator_RowChangingName="vwTribalanceRowChanging" msprop:Generator_RowEvHandlerName="vwTribalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vwTribalanceRowDeleted" msprop:Generator_UserTableName="vwTribalance" msprop:Generator_RowChangedName="vwTribalanceRowChanged" msprop:Generator_RowEvArgName="vwTribalanceRowChangeEvent" msprop:Generator_RowClassName="vwTribalanceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MainHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMainHead" msprop:Generator_ColumnPropNameInRow="MainHead" msprop:Generator_ColumnPropNameInTable="MainHeadColumn" msprop:Generator_UserColumnName="MainHead" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwDayBook" msprop:Generator_TableClassName="vwDayBookDataTable" msprop:Generator_TableVarName="tablevwDayBook" msprop:Generator_RowChangedName="vwDayBookRowChanged" msprop:Generator_TablePropName="vwDayBook" msprop:Generator_RowDeletingName="vwDayBookRowDeleting" msprop:Generator_RowChangingName="vwDayBookRowChanging" msprop:Generator_RowEvHandlerName="vwDayBookRowChangeEventHandler" msprop:Generator_RowDeletedName="vwDayBookRowDeleted" msprop:Generator_RowClassName="vwDayBookRow" msprop:Generator_UserTableName="vwDayBook" msprop:Generator_RowEvArgName="vwDayBookRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MainHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMainHead" msprop:Generator_ColumnPropNameInRow="MainHead" msprop:Generator_ColumnPropNameInTable="MainHeadColumn" msprop:Generator_UserColumnName="MainHead" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwIncome" msprop:Generator_TableClassName="vwIncomeDataTable" msprop:Generator_TableVarName="tablevwIncome" msprop:Generator_TablePropName="vwIncome" msprop:Generator_RowDeletingName="vwIncomeRowDeleting" msprop:Generator_RowChangingName="vwIncomeRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeRowDeleted" msprop:Generator_UserTableName="vwIncome" msprop:Generator_RowChangedName="vwIncomeRowChanged" msprop:Generator_RowEvArgName="vwIncomeRowChangeEvent" msprop:Generator_RowClassName="vwIncomeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubsiHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubsiHead" msprop:Generator_ColumnPropNameInRow="SubsiHead" msprop:Generator_ColumnPropNameInTable="SubsiHeadColumn" msprop:Generator_UserColumnName="SubsiHead" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DuringMonth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDuringMonth" msprop:Generator_ColumnPropNameInRow="DuringMonth" msprop:Generator_ColumnPropNameInTable="DuringMonthColumn" msprop:Generator_UserColumnName="DuringMonth" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EndOfMonth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEndOfMonth" msprop:Generator_ColumnPropNameInRow="EndOfMonth" msprop:Generator_ColumnPropNameInTable="EndOfMonthColumn" msprop:Generator_UserColumnName="EndOfMonth" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwExpendicture" msprop:Generator_TableClassName="vwExpendictureDataTable" msprop:Generator_TableVarName="tablevwExpendicture" msprop:Generator_RowChangedName="vwExpendictureRowChanged" msprop:Generator_TablePropName="vwExpendicture" msprop:Generator_RowDeletingName="vwExpendictureRowDeleting" msprop:Generator_RowChangingName="vwExpendictureRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureRowDeleted" msprop:Generator_RowClassName="vwExpendictureRow" msprop:Generator_UserTableName="vwExpendicture" msprop:Generator_RowEvArgName="vwExpendictureRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubsiHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubsiHead" msprop:Generator_ColumnPropNameInRow="SubsiHead" msprop:Generator_ColumnPropNameInTable="SubsiHeadColumn" msprop:Generator_UserColumnName="SubsiHead" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DuringMonth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDuringMonth" msprop:Generator_ColumnPropNameInRow="DuringMonth" msprop:Generator_ColumnPropNameInTable="DuringMonthColumn" msprop:Generator_UserColumnName="DuringMonth" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EndOfMonth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEndOfMonth" msprop:Generator_ColumnPropNameInRow="EndOfMonth" msprop:Generator_ColumnPropNameInTable="EndOfMonthColumn" msprop:Generator_UserColumnName="EndOfMonth" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwIncomeProgressive" msprop:Generator_TableClassName="vwIncomeProgressiveDataTable" msprop:Generator_TableVarName="tablevwIncomeProgressive" msprop:Generator_TablePropName="vwIncomeProgressive" msprop:Generator_RowDeletingName="vwIncomeProgressiveRowDeleting" msprop:Generator_RowChangingName="vwIncomeProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeProgressiveRowDeleted" msprop:Generator_UserTableName="vwIncomeProgressive" msprop:Generator_RowChangedName="vwIncomeProgressiveRowChanged" msprop:Generator_RowEvArgName="vwIncomeProgressiveRowChangeEvent" msprop:Generator_RowClassName="vwIncomeProgressiveRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DivisionCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDivisionCode" msprop:Generator_ColumnPropNameInRow="DivisionCode" msprop:Generator_ColumnPropNameInTable="DivisionCodeColumn" msprop:Generator_UserColumnName="DivisionCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiviSionName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDiviSionName" msprop:Generator_ColumnPropNameInRow="DiviSionName" msprop:Generator_ColumnPropNameInTable="DiviSionNameColumn" msprop:Generator_UserColumnName="DiviSionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TownOrderCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownOrderCode" msprop:Generator_ColumnPropNameInRow="TownOrderCode" msprop:Generator_ColumnPropNameInTable="TownOrderCodeColumn" msprop:Generator_UserColumnName="TownOrderCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TownName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownName" msprop:Generator_ColumnPropNameInRow="TownName" msprop:Generator_ColumnPropNameInTable="TownNameColumn" msprop:Generator_UserColumnName="TownName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Int_SLC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_SLC" msprop:Generator_ColumnPropNameInRow="Int_SLC" msprop:Generator_ColumnPropNameInTable="Int_SLCColumn" msprop:Generator_UserColumnName="Int_SLC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_STL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_STL" msprop:Generator_ColumnPropNameInRow="Int_STL" msprop:Generator_ColumnPropNameInTable="Int_STLColumn" msprop:Generator_UserColumnName="Int_STL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_LTL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_LTL" msprop:Generator_ColumnPropNameInRow="Int_LTL" msprop:Generator_ColumnPropNameInTable="Int_LTLColumn" msprop:Generator_UserColumnName="Int_LTL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_Overdraft" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_Overdraft" msprop:Generator_ColumnPropNameInRow="Int_Overdraft" msprop:Generator_ColumnPropNameInTable="Int_OverdraftColumn" msprop:Generator_UserColumnName="Int_Overdraft" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_LSL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_LSL" msprop:Generator_ColumnPropNameInRow="Int_LSL" msprop:Generator_ColumnPropNameInTable="Int_LSLColumn" msprop:Generator_UserColumnName="Int_LSL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_LTRS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_LTRS" msprop:Generator_ColumnPropNameInRow="Int_LTRS" msprop:Generator_ColumnPropNameInTable="Int_LTRSColumn" msprop:Generator_UserColumnName="Int_LTRS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_LRS_LTL_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_LRS_LTL_JICA" msprop:Generator_ColumnPropNameInRow="Int_LRS_LTL_JICA" msprop:Generator_ColumnPropNameInTable="Int_LRS_LTL_JICAColumn" msprop:Generator_UserColumnName="Int_LRS_LTL_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_LRS_STL_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_LRS_STL_JICA" msprop:Generator_ColumnPropNameInRow="Int_LRS_STL_JICA" msprop:Generator_ColumnPropNameInTable="Int_LRS_STL_JICAColumn" msprop:Generator_UserColumnName="Int_LRS_STL_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_MEB_LTL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_MEB_LTL" msprop:Generator_ColumnPropNameInRow="Int_MEB_LTL" msprop:Generator_ColumnPropNameInTable="Int_MEB_LTLColumn" msprop:Generator_UserColumnName="Int_MEB_LTL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_MEB_STL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_MEB_STL" msprop:Generator_ColumnPropNameInRow="Int_MEB_STL" msprop:Generator_ColumnPropNameInTable="Int_MEB_STLColumn" msprop:Generator_UserColumnName="Int_MEB_STL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_SLC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_SLC" msprop:Generator_ColumnPropNameInRow="PenInt_SLC" msprop:Generator_ColumnPropNameInTable="PenInt_SLCColumn" msprop:Generator_UserColumnName="PenInt_SLC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_ST" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_ST" msprop:Generator_ColumnPropNameInRow="PenInt_ST" msprop:Generator_ColumnPropNameInTable="PenInt_STColumn" msprop:Generator_UserColumnName="PenInt_ST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LT" msprop:Generator_ColumnPropNameInRow="PenInt_LT" msprop:Generator_ColumnPropNameInTable="PenInt_LTColumn" msprop:Generator_UserColumnName="PenInt_LT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LS" msprop:Generator_ColumnPropNameInRow="PenInt_LS" msprop:Generator_ColumnPropNameInTable="PenInt_LSColumn" msprop:Generator_UserColumnName="PenInt_LS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenIntLTRS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenIntLTRS" msprop:Generator_ColumnPropNameInRow="PenIntLTRS" msprop:Generator_ColumnPropNameInTable="PenIntLTRSColumn" msprop:Generator_UserColumnName="PenIntLTRS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LRS_LTL_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LRS_LTL_JICA" msprop:Generator_ColumnPropNameInRow="PenInt_LRS_LTL_JICA" msprop:Generator_ColumnPropNameInTable="PenInt_LRS_LTL_JICAColumn" msprop:Generator_UserColumnName="PenInt_LRS_LTL_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LRS_STL_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LRS_STL_JICA" msprop:Generator_ColumnPropNameInRow="PenInt_LRS_STL_JICA" msprop:Generator_ColumnPropNameInTable="PenInt_LRS_STL_JICAColumn" msprop:Generator_UserColumnName="PenInt_LRS_STL_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LRS_LTL_MEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LRS_LTL_MEB" msprop:Generator_ColumnPropNameInRow="PenInt_LRS_LTL_MEB" msprop:Generator_ColumnPropNameInTable="PenInt_LRS_LTL_MEBColumn" msprop:Generator_UserColumnName="PenInt_LRS_LTL_MEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_LRS_STL_MEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_LRS_STL_MEB" msprop:Generator_ColumnPropNameInRow="PenInt_LRS_STL_MEB" msprop:Generator_ColumnPropNameInTable="PenInt_LRS_STL_MEBColumn" msprop:Generator_UserColumnName="PenInt_LRS_STL_MEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Misc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMisc" msprop:Generator_ColumnPropNameInRow="Misc" msprop:Generator_ColumnPropNameInTable="MiscColumn" msprop:Generator_UserColumnName="Misc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FeeAndCommission" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeeAndCommission" msprop:Generator_ColumnPropNameInRow="FeeAndCommission" msprop:Generator_ColumnPropNameInTable="FeeAndCommissionColumn" msprop:Generator_UserColumnName="FeeAndCommission" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Int_Covid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInt_Covid19" msprop:Generator_ColumnPropNameInRow="Int_Covid19" msprop:Generator_ColumnPropNameInTable="Int_Covid19Column" msprop:Generator_UserColumnName="Int_Covid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PenInt_Covid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPenInt_Covid19" msprop:Generator_ColumnPropNameInRow="PenInt_Covid19" msprop:Generator_ColumnPropNameInTable="PenInt_Covid19Column" msprop:Generator_UserColumnName="PenInt_Covid19" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwExpendictureProgressive" msprop:Generator_TableClassName="vwExpendictureProgressiveDataTable" msprop:Generator_TableVarName="tablevwExpendictureProgressive" msprop:Generator_TablePropName="vwExpendictureProgressive" msprop:Generator_RowDeletingName="vwExpendictureProgressiveRowDeleting" msprop:Generator_RowChangingName="vwExpendictureProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureProgressiveRowDeleted" msprop:Generator_UserTableName="vwExpendictureProgressive" msprop:Generator_RowChangedName="vwExpendictureProgressiveRowChanged" msprop:Generator_RowEvArgName="vwExpendictureProgressiveRowChangeEvent" msprop:Generator_RowClassName="vwExpendictureProgressiveRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DivisionCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDivisionCode" msprop:Generator_ColumnPropNameInRow="DivisionCode" msprop:Generator_ColumnPropNameInTable="DivisionCodeColumn" msprop:Generator_UserColumnName="DivisionCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiviSionName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDiviSionName" msprop:Generator_ColumnPropNameInRow="DiviSionName" msprop:Generator_ColumnPropNameInTable="DiviSionNameColumn" msprop:Generator_UserColumnName="DiviSionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TownOrderCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownOrderCode" msprop:Generator_ColumnPropNameInRow="TownOrderCode" msprop:Generator_ColumnPropNameInTable="TownOrderCodeColumn" msprop:Generator_UserColumnName="TownOrderCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TownName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownName" msprop:Generator_ColumnPropNameInRow="TownName" msprop:Generator_ColumnPropNameInTable="TownNameColumn" msprop:Generator_UserColumnName="TownName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PayAllwance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPayAllwance" msprop:Generator_ColumnPropNameInRow="PayAllwance" msprop:Generator_ColumnPropNameInTable="PayAllwanceColumn" msprop:Generator_UserColumnName="PayAllwance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Wages" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWages" msprop:Generator_ColumnPropNameInRow="Wages" msprop:Generator_ColumnPropNameInTable="WagesColumn" msprop:Generator_UserColumnName="Wages" type="xs:decimal" minOccurs="0" />
+              <xs:element name="A_Cleaning" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnA_Cleaning" msprop:Generator_ColumnPropNameInRow="A_Cleaning" msprop:Generator_ColumnPropNameInTable="A_CleaningColumn" msprop:Generator_UserColumnName="A_Cleaning" type="xs:decimal" minOccurs="0" />
+              <xs:element name="B_DWOffice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnB_DWOffice" msprop:Generator_ColumnPropNameInRow="B_DWOffice" msprop:Generator_ColumnPropNameInTable="B_DWOfficeColumn" msprop:Generator_UserColumnName="B_DWOffice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="C_Wages1Persentage" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnC_Wages1Persentage" msprop:Generator_ColumnPropNameInRow="C_Wages1Persentage" msprop:Generator_ColumnPropNameInTable="C_Wages1PersentageColumn" msprop:Generator_UserColumnName="C_Wages1Persentage" type="xs:decimal" minOccurs="0" />
+              <xs:element name="D_Other" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnD_Other" msprop:Generator_ColumnPropNameInRow="D_Other" msprop:Generator_ColumnPropNameInTable="D_OtherColumn" msprop:Generator_UserColumnName="D_Other" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pension" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPension" msprop:Generator_ColumnPropNameInRow="Pension" msprop:Generator_ColumnPropNameInTable="PensionColumn" msprop:Generator_UserColumnName="Pension" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTA" msprop:Generator_ColumnPropNameInRow="TA" msprop:Generator_ColumnPropNameInTable="TAColumn" msprop:Generator_UserColumnName="TA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Entertainment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEntertainment" msprop:Generator_ColumnPropNameInRow="Entertainment" msprop:Generator_ColumnPropNameInTable="EntertainmentColumn" msprop:Generator_UserColumnName="Entertainment" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PTT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPTT" msprop:Generator_ColumnPropNameInRow="PTT" msprop:Generator_ColumnPropNameInTable="PTTColumn" msprop:Generator_UserColumnName="PTT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LightingPower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLightingPower" msprop:Generator_ColumnPropNameInRow="LightingPower" msprop:Generator_ColumnPropNameInTable="LightingPowerColumn" msprop:Generator_UserColumnName="LightingPower" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RBC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRBC" msprop:Generator_ColumnPropNameInRow="RBC" msprop:Generator_ColumnPropNameInTable="RBCColumn" msprop:Generator_UserColumnName="RBC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RBCMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRBCMEB" msprop:Generator_ColumnPropNameInRow="RBCMEB" msprop:Generator_ColumnPropNameInTable="RBCMEBColumn" msprop:Generator_UserColumnName="RBCMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RBCJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRBCJICA" msprop:Generator_ColumnPropNameInRow="RBCJICA" msprop:Generator_ColumnPropNameInTable="RBCJICAColumn" msprop:Generator_UserColumnName="RBCJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Newspaper" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNewspaper" msprop:Generator_ColumnPropNameInRow="Newspaper" msprop:Generator_ColumnPropNameInTable="NewspaperColumn" msprop:Generator_UserColumnName="Newspaper" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UniformAllwance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUniformAllwance" msprop:Generator_ColumnPropNameInRow="UniformAllwance" msprop:Generator_ColumnPropNameInTable="UniformAllwanceColumn" msprop:Generator_UserColumnName="UniformAllwance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_and_H" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_and_H" msprop:Generator_ColumnPropNameInRow="T_and_H" msprop:Generator_ColumnPropNameInTable="T_and_HColumn" msprop:Generator_UserColumnName="T_and_H" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_and_H_MEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_and_H_MEB" msprop:Generator_ColumnPropNameInRow="T_and_H_MEB" msprop:Generator_ColumnPropNameInTable="T_and_H_MEBColumn" msprop:Generator_UserColumnName="T_and_H_MEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_and_H_Jica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_and_H_Jica" msprop:Generator_ColumnPropNameInRow="T_and_H_Jica" msprop:Generator_ColumnPropNameInTable="T_and_H_JicaColumn" msprop:Generator_UserColumnName="T_and_H_Jica" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VehicleRExpense" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVehicleRExpense" msprop:Generator_ColumnPropNameInRow="VehicleRExpense" msprop:Generator_ColumnPropNameInTable="VehicleRExpenseColumn" msprop:Generator_UserColumnName="VehicleRExpense" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VRE_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVRE_JICA" msprop:Generator_ColumnPropNameInRow="VRE_JICA" msprop:Generator_ColumnPropNameInTable="VRE_JICAColumn" msprop:Generator_UserColumnName="VRE_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeSupplies" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeSupplies" msprop:Generator_ColumnPropNameInRow="OfficeSupplies" msprop:Generator_ColumnPropNameInTable="OfficeSuppliesColumn" msprop:Generator_UserColumnName="OfficeSupplies" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeSuppliesMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeSuppliesMEB" msprop:Generator_ColumnPropNameInRow="OfficeSuppliesMEB" msprop:Generator_ColumnPropNameInTable="OfficeSuppliesMEBColumn" msprop:Generator_UserColumnName="OfficeSuppliesMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeSuppliesJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeSuppliesJICA" msprop:Generator_ColumnPropNameInRow="OfficeSuppliesJICA" msprop:Generator_ColumnPropNameInTable="OfficeSuppliesJICAColumn" msprop:Generator_UserColumnName="OfficeSuppliesJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnP_S" msprop:Generator_ColumnPropNameInRow="P_S" msprop:Generator_ColumnPropNameInTable="P_SColumn" msprop:Generator_UserColumnName="P_S" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_S_MEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnP_S_MEB" msprop:Generator_ColumnPropNameInRow="P_S_MEB" msprop:Generator_ColumnPropNameInTable="P_S_MEBColumn" msprop:Generator_UserColumnName="P_S_MEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_S_Jica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnP_S_Jica" msprop:Generator_ColumnPropNameInRow="P_S_Jica" msprop:Generator_ColumnPropNameInTable="P_S_JicaColumn" msprop:Generator_UserColumnName="P_S_Jica" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PatrolOilLubri" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPatrolOilLubri" msprop:Generator_ColumnPropNameInRow="PatrolOilLubri" msprop:Generator_ColumnPropNameInTable="PatrolOilLubriColumn" msprop:Generator_UserColumnName="PatrolOilLubri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rent" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRent" msprop:Generator_ColumnPropNameInRow="Rent" msprop:Generator_ColumnPropNameInTable="RentColumn" msprop:Generator_UserColumnName="Rent" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RateTaxs" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRateTaxs" msprop:Generator_ColumnPropNameInRow="RateTaxs" msprop:Generator_ColumnPropNameInTable="RateTaxsColumn" msprop:Generator_UserColumnName="RateTaxs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TrainingExpense" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTrainingExpense" msprop:Generator_ColumnPropNameInRow="TrainingExpense" msprop:Generator_ColumnPropNameInTable="TrainingExpenseColumn" msprop:Generator_UserColumnName="TrainingExpense" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TrainingMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTrainingMEB" msprop:Generator_ColumnPropNameInRow="TrainingMEB" msprop:Generator_ColumnPropNameInTable="TrainingMEBColumn" msprop:Generator_UserColumnName="TrainingMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TrainingJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTrainingJICA" msprop:Generator_ColumnPropNameInRow="TrainingJICA" msprop:Generator_ColumnPropNameInTable="TrainingJICAColumn" msprop:Generator_UserColumnName="TrainingJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IntOnMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIntOnMEB" msprop:Generator_ColumnPropNameInRow="IntOnMEB" msprop:Generator_ColumnPropNameInTable="IntOnMEBColumn" msprop:Generator_UserColumnName="IntOnMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IntOnMEB_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIntOnMEB_JICA" msprop:Generator_ColumnPropNameInRow="IntOnMEB_JICA" msprop:Generator_ColumnPropNameInTable="IntOnMEB_JICAColumn" msprop:Generator_UserColumnName="IntOnMEB_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IntOnRSD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIntOnRSD" msprop:Generator_ColumnPropNameInRow="IntOnRSD" msprop:Generator_ColumnPropNameInTable="IntOnRSDColumn" msprop:Generator_UserColumnName="IntOnRSD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IntOnResidentSavingDeposit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIntOnResidentSavingDeposit" msprop:Generator_ColumnPropNameInRow="IntOnResidentSavingDeposit" msprop:Generator_ColumnPropNameInTable="IntOnResidentSavingDepositColumn" msprop:Generator_UserColumnName="IntOnResidentSavingDeposit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Insurance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsurance" msprop:Generator_ColumnPropNameInRow="Insurance" msprop:Generator_ColumnPropNameInTable="InsuranceColumn" msprop:Generator_UserColumnName="Insurance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExhibitionExpense" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExhibitionExpense" msprop:Generator_ColumnPropNameInRow="ExhibitionExpense" msprop:Generator_ColumnPropNameInTable="ExhibitionExpenseColumn" msprop:Generator_UserColumnName="ExhibitionExpense" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExhibitionMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExhibitionMEB" msprop:Generator_ColumnPropNameInRow="ExhibitionMEB" msprop:Generator_ColumnPropNameInTable="ExhibitionMEBColumn" msprop:Generator_UserColumnName="ExhibitionMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExhibitionJica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExhibitionJica" msprop:Generator_ColumnPropNameInRow="ExhibitionJica" msprop:Generator_ColumnPropNameInTable="ExhibitionJicaColumn" msprop:Generator_UserColumnName="ExhibitionJica" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MOfficeBuilding" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMOfficeBuilding" msprop:Generator_ColumnPropNameInRow="MOfficeBuilding" msprop:Generator_ColumnPropNameInTable="MOfficeBuildingColumn" msprop:Generator_UserColumnName="MOfficeBuilding" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MOfficeVehicle" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMOfficeVehicle" msprop:Generator_ColumnPropNameInRow="MOfficeVehicle" msprop:Generator_ColumnPropNameInTable="MOfficeVehicleColumn" msprop:Generator_UserColumnName="MOfficeVehicle" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MOfficeEquipment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMOfficeEquipment" msprop:Generator_ColumnPropNameInRow="MOfficeEquipment" msprop:Generator_ColumnPropNameInTable="MOfficeEquipmentColumn" msprop:Generator_UserColumnName="MOfficeEquipment" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MFurnitureOther" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMFurnitureOther" msprop:Generator_ColumnPropNameInRow="MFurnitureOther" msprop:Generator_ColumnPropNameInTable="MFurnitureOtherColumn" msprop:Generator_UserColumnName="MFurnitureOther" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEOfficeBuilding" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDEOfficeBuilding" msprop:Generator_ColumnPropNameInRow="DEOfficeBuilding" msprop:Generator_ColumnPropNameInTable="DEOfficeBuildingColumn" msprop:Generator_UserColumnName="DEOfficeBuilding" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEOfficeVehicle" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDEOfficeVehicle" msprop:Generator_ColumnPropNameInRow="DEOfficeVehicle" msprop:Generator_ColumnPropNameInTable="DEOfficeVehicleColumn" msprop:Generator_UserColumnName="DEOfficeVehicle" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEOfficeEquipment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDEOfficeEquipment" msprop:Generator_ColumnPropNameInRow="DEOfficeEquipment" msprop:Generator_ColumnPropNameInTable="DEOfficeEquipmentColumn" msprop:Generator_UserColumnName="DEOfficeEquipment" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEFurEquipment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDEFurEquipment" msprop:Generator_ColumnPropNameInRow="DEFurEquipment" msprop:Generator_ColumnPropNameInTable="DEFurEquipmentColumn" msprop:Generator_UserColumnName="DEFurEquipment" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeBuildingJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeBuildingJICA" msprop:Generator_ColumnPropNameInRow="OfficeBuildingJICA" msprop:Generator_ColumnPropNameInTable="OfficeBuildingJICAColumn" msprop:Generator_UserColumnName="OfficeBuildingJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeVehicleJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeVehicleJICA" msprop:Generator_ColumnPropNameInRow="OfficeVehicleJICA" msprop:Generator_ColumnPropNameInTable="OfficeVehicleJICAColumn" msprop:Generator_UserColumnName="OfficeVehicleJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeEquipmentJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeEquipmentJICA" msprop:Generator_ColumnPropNameInRow="OfficeEquipmentJICA" msprop:Generator_ColumnPropNameInTable="OfficeEquipmentJICAColumn" msprop:Generator_UserColumnName="OfficeEquipmentJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FurnitureAndOtherJICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFurnitureAndOtherJICA" msprop:Generator_ColumnPropNameInRow="FurnitureAndOtherJICA" msprop:Generator_ColumnPropNameInTable="FurnitureAndOtherJICAColumn" msprop:Generator_UserColumnName="FurnitureAndOtherJICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Advertisement" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAdvertisement" msprop:Generator_ColumnPropNameInRow="Advertisement" msprop:Generator_ColumnPropNameInTable="AdvertisementColumn" msprop:Generator_UserColumnName="Advertisement" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TA_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTA_JICA" msprop:Generator_ColumnPropNameInRow="TA_JICA" msprop:Generator_ColumnPropNameInTable="TA_JICAColumn" msprop:Generator_UserColumnName="TA_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Advertisement_JICA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAdvertisement_JICA" msprop:Generator_ColumnPropNameInRow="Advertisement_JICA" msprop:Generator_ColumnPropNameInTable="Advertisement_JICAColumn" msprop:Generator_UserColumnName="Advertisement_JICA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TA_MEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTA_MEB" msprop:Generator_ColumnPropNameInRow="TA_MEB" msprop:Generator_ColumnPropNameInTable="TA_MEBColumn" msprop:Generator_UserColumnName="TA_MEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BankingSoftwareOther" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBankingSoftwareOther" msprop:Generator_ColumnPropNameInRow="BankingSoftwareOther" msprop:Generator_ColumnPropNameInTable="BankingSoftwareOtherColumn" msprop:Generator_UserColumnName="BankingSoftwareOther" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VehicleRentalExpenseMEB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVehicleRentalExpenseMEB" msprop:Generator_ColumnPropNameInRow="VehicleRentalExpenseMEB" msprop:Generator_ColumnPropNameInTable="VehicleRentalExpenseMEBColumn" msprop:Generator_UserColumnName="VehicleRentalExpenseMEB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fireprevention" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFireprevention" msprop:Generator_ColumnPropNameInRow="Fireprevention" msprop:Generator_ColumnPropNameInTable="FirepreventionColumn" msprop:Generator_UserColumnName="Fireprevention" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherGeneral" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherGeneral" msprop:Generator_ColumnPropNameInRow="OtherGeneral" msprop:Generator_ColumnPropNameInTable="OtherGeneralColumn" msprop:Generator_UserColumnName="OtherGeneral" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RBC_Covid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRBC_Covid19" msprop:Generator_ColumnPropNameInRow="RBC_Covid19" msprop:Generator_ColumnPropNameInTable="RBC_Covid19Column" msprop:Generator_UserColumnName="RBC_Covid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MealAllowance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMealAllowance" msprop:Generator_ColumnPropNameInRow="MealAllowance" msprop:Generator_ColumnPropNameInTable="MealAllowanceColumn" msprop:Generator_UserColumnName="MealAllowance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TravellingCovid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTravellingCovid19" msprop:Generator_ColumnPropNameInRow="TravellingCovid19" msprop:Generator_ColumnPropNameInTable="TravellingCovid19Column" msprop:Generator_UserColumnName="TravellingCovid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeSuppliesCovid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeSuppliesCovid19" msprop:Generator_ColumnPropNameInRow="OfficeSuppliesCovid19" msprop:Generator_ColumnPropNameInTable="OfficeSuppliesCovid19Column" msprop:Generator_UserColumnName="OfficeSuppliesCovid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_S_Covid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnP_S_Covid19" msprop:Generator_ColumnPropNameInRow="P_S_Covid19" msprop:Generator_ColumnPropNameInTable="P_S_Covid19Column" msprop:Generator_UserColumnName="P_S_Covid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_and_H_Covid19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_and_H_Covid19" msprop:Generator_ColumnPropNameInRow="T_and_H_Covid19" msprop:Generator_ColumnPropNameInTable="T_and_H_Covid19Column" msprop:Generator_UserColumnName="T_and_H_Covid19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SpecialAllowance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSpecialAllowance" msprop:Generator_ColumnPropNameInRow="SpecialAllowance" msprop:Generator_ColumnPropNameInTable="SpecialAllowanceColumn" msprop:Generator_UserColumnName="SpecialAllowance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Accommodation" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAccommodation" msprop:Generator_ColumnPropNameInRow="Accommodation" msprop:Generator_ColumnPropNameInTable="AccommodationColumn" msprop:Generator_UserColumnName="Accommodation" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RBCSunflower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRBCSunflower" msprop:Generator_ColumnPropNameInRow="RBCSunflower" msprop:Generator_ColumnPropNameInTable="RBCSunflowerColumn" msprop:Generator_UserColumnName="RBCSunflower" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_S_Sunflower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnP_S_Sunflower" msprop:Generator_ColumnPropNameInRow="P_S_Sunflower" msprop:Generator_ColumnPropNameInTable="P_S_SunflowerColumn" msprop:Generator_UserColumnName="P_S_Sunflower" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OfficeSuppliesSunflower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOfficeSuppliesSunflower" msprop:Generator_ColumnPropNameInRow="OfficeSuppliesSunflower" msprop:Generator_ColumnPropNameInTable="OfficeSuppliesSunflowerColumn" msprop:Generator_UserColumnName="OfficeSuppliesSunflower" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_and_H_Sunflower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_and_H_Sunflower" msprop:Generator_ColumnPropNameInRow="T_and_H_Sunflower" msprop:Generator_ColumnPropNameInTable="T_and_H_SunflowerColumn" msprop:Generator_UserColumnName="T_and_H_Sunflower" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TASunflower" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTASunflower" msprop:Generator_ColumnPropNameInRow="TASunflower" msprop:Generator_ColumnPropNameInTable="TASunflowerColumn" msprop:Generator_UserColumnName="TASunflower" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwMonthReturn" msprop:Generator_TableClassName="vwMonthReturnDataTable" msprop:Generator_TableVarName="tablevwMonthReturn" msprop:Generator_RowChangedName="vwMonthReturnRowChanged" msprop:Generator_TablePropName="vwMonthReturn" msprop:Generator_RowDeletingName="vwMonthReturnRowDeleting" msprop:Generator_RowChangingName="vwMonthReturnRowChanging" msprop:Generator_RowEvHandlerName="vwMonthReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="vwMonthReturnRowDeleted" msprop:Generator_RowClassName="vwMonthReturnRow" msprop:Generator_UserTableName="vwMonthReturn" msprop:Generator_RowEvArgName="vwMonthReturnRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAccountCode" msprop:Generator_ColumnPropNameInRow="AccountCode" msprop:Generator_ColumnPropNameInTable="AccountCodeColumn" msprop:Generator_UserColumnName="AccountCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubsiHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubsiHead" msprop:Generator_ColumnPropNameInRow="SubsiHead" msprop:Generator_ColumnPropNameInTable="SubsiHeadColumn" msprop:Generator_UserColumnName="SubsiHead" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vw_Balance" msprop:Generator_TableClassName="vw_BalanceDataTable" msprop:Generator_TableVarName="tablevw_Balance" msprop:Generator_TablePropName="vw_Balance" msprop:Generator_RowDeletingName="vw_BalanceRowDeleting" msprop:Generator_RowChangingName="vw_BalanceRowChanging" msprop:Generator_RowEvHandlerName="vw_BalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_BalanceRowDeleted" msprop:Generator_UserTableName="vw_Balance" msprop:Generator_RowChangedName="vw_BalanceRowChanged" msprop:Generator_RowEvArgName="vw_BalanceRowChangeEvent" msprop:Generator_RowClassName="vw_BalanceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TownName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownName" msprop:Generator_ColumnPropNameInRow="TownName" msprop:Generator_ColumnPropNameInTable="TownNameColumn" msprop:Generator_UserColumnName="TownName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

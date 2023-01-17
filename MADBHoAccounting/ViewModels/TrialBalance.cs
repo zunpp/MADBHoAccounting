@@ -11,13 +11,15 @@ namespace MADBHoAccounting.ViewModels
     {
         [Key]
         public int AccountPkid { get; set; }
-        public string AccountMainTitleCode { get; set; }
+        public string AccountCode { get; set; }
         public string MainHead { get; set; }        
-        public decimal? DebitAmount { get; set; }
-        public decimal? CreditAmount { get; set; }
+        public decimal? Debit { get; set; }
+        public decimal? Credit { get; set; }
         public string SubsiHead { get; set; }
         public decimal? DuringMonth { get; set; }
         public decimal? EndOfMonth { get; set; }
+        public string TownName { get; set; }
+        public decimal? Balance { get; set; }
 
     }
 }

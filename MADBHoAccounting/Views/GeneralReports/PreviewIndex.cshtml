@@ -1,0 +1,38 @@
+﻿<a class="btn btn-primary" data-target="#pdfContainer">Excel</a>
+
+<a class="btn btn-primary" data-target="#pdfContainer">Word</a>
+
+<div class="box" style=" height:700px; background-color:gray;" id="pdfContainer">
+    <object id="pdfviewer" data="" type="application/pdf" style="width:100%;height:100%;"></object>
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            changeRdBox();
+        })        
+        function Preview() {
+            var url = '/GeneralReports/PrintReceipt';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = function (e) {
+                if (this.status == 200) {
+                    $('#pdfContainer').show();
+                    console.log("response :" + this.response);
+                    var blob = new Blob([this.response], { type: "application/pdf" });
+                    $("#pdfviewer").attr("data", window.URL.createObjectURL(blob));
+
+                    //var link=document.createElement('a');
+                    //link.href=window.URL.createObjectURL(blob);
+                    //link.download="Report_"+new Date()+".pdf";
+                    //link.click();
+                }
+            };
+            xhr.send();
+        }
+
+    </script>
+}

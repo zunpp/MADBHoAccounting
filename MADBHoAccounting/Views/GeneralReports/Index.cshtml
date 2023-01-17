@@ -1,18 +1,29 @@
-﻿@{
+﻿@model MADBHoAccounting.ViewModels.TB_AccountName
+
+@{
     ViewData["Title"] = "Index";
 }
 
 <h3 style="text-align:center">All General Reports</h3>
 
-<div class="col-sm-12">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <label for="gpName">Group Name</label>
-    <input type="text" id="gpID" name="groupID" value="@ViewBag.gpID " />
-    <label for="tCode">Town Code</label>
-    <input type="text" id="tID" name="tID" value="@ViewBag.tID " />
-    <label for="sdCode">State/Division Code</label>
-    <input type="text" id="sdID" name="sdID" value="@ViewBag.sdID " />
-    <form id="radioSection">
+<div>
+    <div class="row">
+        <div class="col-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label>Group Name</label>
+            <input class="form-control" type="text" id="gpID" name="groupID" value="@ViewBag.gpID " />
+        </div>
+        <div class="col-4">
+            <label>Town Code</label>
+            <input class="form-control" type="text" id="tID" name="tID" value="@ViewBag.tID " />
+        </div>
+        <div class="col-4">
+            <label>State/Division Code</label>
+            <input class="form-control" type="text" id="sdID" name="sdID" value="@ViewBag.sdID " />
+        </div>
+    </div>
+
+    <form id="radioSection" class="mt-2">
         <input type="radio" id="equalID" name="rdo" value="equal">
         <label for="equal">Equal</label>&nbsp; &nbsp;
 
@@ -20,39 +31,55 @@
         <label for="upto">Upto</label>&nbsp; &nbsp;
 
         <input type="radio" id="betweenID" name="rdo" value="between">
-        <label for="between">Between</label><br><br>
+        <label for="between">Between</label>
 
         <input class="form-control" id="rdVal" hidden readonly />
     </form>
+    <div class="row">
+        <div class="col-4">
+            <label for="MainHeadName" class="control-label">Main Head</label>
+            <input type="text" id="mainhead" autocomplete="off" name="mainHeadName" class="form-control" />
+            <div id="accCode" class="position-absolute" style="height: 210px; overflow: auto">
+            </div>
+            <span asp-validation-for="MainHeadName" class="text-danger"></span>
+        </div>
+        <div class="col-4">            
+            <label for="AccountCode" class="control-label">Account Code</label>
+            <input type="text" id="accountcode" autocomplete="off" name="accountCode" class="form-control" />
+        </div>
+        <div class="col-4">
+            <label for="SubsiHeadName" class="control-label">Subsi Head</label>
+            <input type="text" id="subsiheadname" autocomplete="off" name="subsiHeadName" class="form-control" readonly />
+        </div>
+    </div>
 </div>
 
 @* Test *@
 <div class="row">
     <div class="col-sm-4">
         <label>Start Date</label>
-        <input type="date" id="startDate" name="StartDate" class="form-control">
-        <br><br>
+        <input type="date" id="startDate" name="StartDate" class="form-control">        
     </div>
 
     <div class="col-sm-4">
         <label>End Date</label>
         <input type="date" id="endDate" name="EndDate" class="form-control">
-        <br><br>
     </div>
 
     <div class="col-sm-4">
         <label>Report Type</label>
-        <select id="TrilBalance" class="form-control">
+        <select id="TrilBalance" class="form-control" data-target="#pdfContainer">
             <option value="" selected> ရွေးချယ်ရန် </option>
             <option value="Trial Balance"> Trial Balance </option>
             <option value="Day Book"> Day Book </option>
             <option value="Income"> Income </option>
             <option value="Expenditure"> Expenditure </option>
             <option value="Income Progressive"> Income Progressive </option>
-            <option value="Expendicture Progressive"> Expendicture Progressive </option>
-            <option value="General Ledger"> General Ledger </option>
-            <option value="Subsi Ledger"> Subsi Ledger </option>
-            <option value="CashS croll"> CashS croll </option>
+            <option value="Expenditure Progressive"> Expendicture Progressive </option>
+            <option value="Month Return"> Month Return </option>
+            <option value="MainHead Progressive"> MainHead Progressive </option>
+            <option value="SubsiHead Progressive"> AccountCode Progressive </option>
+            <option value="Cash Scroll"> Cash Scroll </option>
             <option value="Transfer Scroll"> Transfer Scroll </option>
             <option value="Clean Cash"> Clean Cash </option>
             <option value="Balancing"> Balancing </option>
@@ -70,10 +97,10 @@
 @* Test *@
 
 <br>
-<br>
+
 
 @*<a class="btn btn-primary" href="../GeneralReports/PrintReceipt" data-target="#pdfContainer">Print</a>*@
-<a class="btn btn-primary" onclick="Preview()" data-target="#pdfContainer">Print</a>
+@*<a class="btn btn-primary text-white" onclick="Preview()" data-target="#pdfContainer">Print</a>*@
 
 <div class="box" style=" height:700px; background-color:gray;" id="pdfContainer">
     <object id="pdfviewer" data="" type="application/pdf" style="width:100%;height:100%;"></object>
@@ -119,17 +146,41 @@
             var gpID = $('#gpID').val();
             var tID = $('#tID').val();
             var sdID = $('#sdID').val();
-            $.ajax({
-                type: "GET",
-                url: '/GeneralReports/GetGeneralReportResult/',
-                data: { gpID: gpID, tID: tID, sdID: sdID, eDate: eDate, rpType: rpType, rdVal: rdVal, sDate: sDate },
-                beforeSend: function () {
+            var mainhead = $('#mainhead').val();
+            var accountcode = $('#accountcode').val();
+            var subsiheadname = $('#subsiheadname').val();
 
-                },
-                success: function (data) {
-                    $('#reportId').html(data);
+            var url = '/GeneralReports/PrintPreview?gpID=' + gpID + "&tID=" + tID + "&sdID=" + sdID + "&eDate=" + eDate + "&rpType=" + rpType + "&rdVal=" + rdVal + "&sDate=" + sDate + "&mainhead=" + mainhead + "&accountcode=" + accountcode + "&subsiheadname=" + subsiheadname;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = function (e) {
+                if (this.status == 200) {
+                    $('#pdfContainer').show();
+                    console.log("response :" + this.response);
+                    var blob = new Blob([this.response], { type: "application/pdf" });
+                    $("#pdfviewer").attr("data", window.URL.createObjectURL(blob));
+
+                    //var link=document.createElement('a');
+                    //link.href=window.URL.createObjectURL(blob);
+                    //link.download="Report_"+new Date()+".pdf";
+                    //link.click();
                 }
-            })
+            };
+            xhr.send();
+            //$.ajax({
+            //    type: "GET",
+            //    url: '/GeneralReports/PrintPreview/',
+            //    data: { gpID: gpID, tID: tID, sdID: sdID, eDate: eDate, rpType: rpType, rdVal: rdVal, sDate: sDate },
+            //    beforeSend: function () {
+
+            //    },
+            //    success: function (data) {
+            //        $('#reportId').html(data);
+            //    }
+
+
+            //})
         })
         function Preview() {
             var url = '/GeneralReports/PrintReceipt';
@@ -151,6 +202,52 @@
             };
             xhr.send();
         }
+
+        $("#mainhead").on("input", function () {
+            var a = $("#mainhead").val()
+            $.ajax({
+                type: 'GET',
+                url: '/GeneralReports/MainHead_Load',
+                data: { id: a },
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#accCode").empty()
+                    for (i = 0; i < data.length; i++) {
+                        $("#accCode").append("<div style='cursor: pointer' onclick='add(this)' data-mainhead='" + data[i].mainHeadName + "' class='bg-white rounded shadow border py-2'>" + data[i].mainHeadName + "</div>")
+                    }
+                }
+            })
+        })
+
+        function add(e) {            
+            var accMainHead = $(e).attr('data-mainhead');
+
+            $("#mainhead").val(accMainHead)
+            $("#accCode").empty()
+        }
+
+        $('#accountcode').on('input', function () {
+            var accountCode = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '/AccountDetailEntry/Account_Load',
+                data: { accountCode: accountCode },
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+                    console.log(data)
+                    $.each(data, function (key, value) {
+                        if (key == "subsiHeadName") {
+                            $("#subsiheadname").val(value);
+                        }                        
+                    })
+                }
+            })
+        })
 
     </script>
 }

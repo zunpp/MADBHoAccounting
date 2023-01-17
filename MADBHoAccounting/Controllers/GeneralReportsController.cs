@@ -129,6 +129,124 @@ namespace MADBHoAccounting.Controllers
          
         }
 
+        [HttpGet]
+        public IActionResult PrintPreview(string gpID, string tID, string sdID, DateTime eDate, string rpType, string rdVal, DateTime sDate, string mainhead, string accountcode, string subsiheadname)
+        {
+            string renderFormat = "PDF";
+            string extension = "pdf";
+            string mimetype = "application/pdf";
+            using (var report = new LocalReport())
+            {
+
+                if (rdVal == "upto" || rdVal == "equal")
+                {
+                    sDate = DateTime.Now;
+                }
+                if (rpType == "Trial Balance")
+                {
+                    var reportId = trialBalance.GetTriBalanceList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("TrialBalance", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\TrailBalance.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Day Book")
+                {
+                    var reportId = trialBalance.GetDayBookList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("DayBook", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\DayBook.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Income")
+                {
+                    var reportId = trialBalance.GetIncomeList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("Income", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\Income.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Expenditure")
+                {
+                    var reportId = trialBalance.GetExpenditureList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("Expenditure", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\Expenditure.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Income Progressive")
+                {
+                    var reportId = trialBalance.GetIncomeProgressiveList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("IncomeProgressive", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\IncomeProgressive.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Expenditure Progressive")
+                {
+                    var reportId = trialBalance.GetExpenditureProgressiveList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("ExpenditureProgressive", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\ExpenditureProgressive.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Month Return")
+                {
+                    var reportId = trialBalance.GetMonthReturnList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("MonthReturn", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\MonthReturn.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "MainHead Progressive")
+                {
+                    var reportId = trialBalance.GetMainHeadProgressiveList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, mainhead, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("MainHeadProgressive", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\MainHeadProgressive.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "SubsiHead Progressive")
+                {
+                    var reportId = trialBalance.GetSubsiHeadProgressiveList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, subsiheadname, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("MainHeadProgressive", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\MainHeadProgressive.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+
+            }
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult MainHead_Load(string id = "")
+        {
+            var innerJoin = (from amt in _context.TbAccountName.Where(x => x.MainHeadName.StartsWith(id) && x.IsDeleted.Equals(false))
+                                 //.Where(x => x.AccountSubTitleInEnglish.StartsWith(id) && x.IsUsable.Equals("Enable") && x.IsDeleted.Equals(false)) // outer sequence
+                                 //join amt in _context.TB_AccountMainTitle //inner sequence 
+                                 //on asi.AccountMainTitleCode equals amt.AccountMainTitleCode // key selector 
+
+                             select new
+                             { // result selector                                  a
+                                 //amt.AccountCode,
+                                 amt.MainHeadName,
+                                 //amt.SubsiHeadName
+                             }).ToList();
+
+            return Json(innerJoin);
+        }
+        
 
         [HttpGet]
         public ActionResult GetGeneralReportResult(string gpID, string tID, string sdID, DateTime eDate, string rpType, string rdVal, DateTime sDate)

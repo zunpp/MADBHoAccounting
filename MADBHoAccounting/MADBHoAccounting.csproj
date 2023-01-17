@@ -6,7 +6,15 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\Error.cshtml" />
+    <Content Remove="wwwroot\Reports\DayBook.rdlc" />
+    <Content Remove="wwwroot\Reports\Expenditure.rdlc" />
+    <Content Remove="wwwroot\Reports\ExpenditureProgressive.rdlc" />
+    <Content Remove="wwwroot\Reports\Income.rdlc" />
+    <Content Remove="wwwroot\Reports\IncomeProgressive.rdlc" />
+    <Content Remove="wwwroot\Reports\MainHeadProgressive.rdlc" />
+    <Content Remove="wwwroot\Reports\MonthReturn.rdlc" />
     <Content Remove="wwwroot\Reports\Report1.rdlc" />
+    <Content Remove="wwwroot\Reports\TrailBalance.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,11 +35,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Include="wwwroot\Reports\DayBook.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\Expenditure.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\ExpenditureProgressive.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\Income.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\IncomeProgressive.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\MainHeadProgressive.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Reports\MonthReturn.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="wwwroot\Reports\Report1.rdlc" />
+    <None Include="wwwroot\Reports\TrailBalance.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

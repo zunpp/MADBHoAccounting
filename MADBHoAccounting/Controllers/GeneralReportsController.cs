@@ -217,8 +217,17 @@ namespace MADBHoAccounting.Controllers
                 else if (rpType == "SubsiHead Progressive")
                 {
                     var reportId = trialBalance.GetSubsiHeadProgressiveList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, subsiheadname, _connectionStrings.DefaultConnection).ToList();
-                    report.DataSources.Add(new ReportDataSource("MainHeadProgressive", reportId));
-                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\MainHeadProgressive.rdlc";
+                    report.DataSources.Add(new ReportDataSource("AccountCodeProgressive", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\AccountCodeProgressive.rdlc";
+
+                    var pdf = report.Render(renderFormat);
+                    return File(pdf, mimetype, "Users_report." + extension);
+                }
+                else if (rpType == "Town And Account")
+                {
+                    var reportId = trialBalance.GetTownCodeAndNameList(gpID, tID, sdID, eDate, rpType, rdVal, sDate, mainhead, _connectionStrings.DefaultConnection).ToList();
+                    report.DataSources.Add(new ReportDataSource("TownCodeAndName", reportId));
+                    report.ReportPath = $"{_webHostEnvironment.WebRootPath}\\Reports\\TownCodeAndName.rdlc";
 
                     var pdf = report.Render(renderFormat);
                     return File(pdf, mimetype, "Users_report." + extension);

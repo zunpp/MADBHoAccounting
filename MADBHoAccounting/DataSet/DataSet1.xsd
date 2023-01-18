@@ -250,6 +250,24 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwTownAndAccountTableAdapter" GeneratorDataComponentClassName="vwTownAndAccountTableAdapter" Name="vwTownAndAccount" UserDataComponentName="vwTownAndAccountTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MADBHoAccounting_OnlineConnectionString" DbObjectName="MADBHoAccounting_Online.dbo.vwTownAndAccount" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CodeTownName, Debit, Credit FROM dbo.vwTownAndAccount</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CodeTownName" DataSetColumn="CodeTownName" />
+              <Mapping SourceColumn="Debit" DataSetColumn="Debit" />
+              <Mapping SourceColumn="Credit" DataSetColumn="Credit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -258,7 +276,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserPkid" msprop:Generator_ColumnVarNameInTable="columnUserPkid" msprop:Generator_ColumnPropNameInRow="UserPkid" msprop:Generator_ColumnPropNameInTable="UserPkidColumn" msprop:Generator_UserColumnName="UserPkid" type="xs:string" minOccurs="0" />
@@ -267,7 +285,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwTribalance" msprop:Generator_TableClassName="vwTribalanceDataTable" msprop:Generator_TableVarName="tablevwTribalance" msprop:Generator_TablePropName="vwTribalance" msprop:Generator_RowDeletingName="vwTribalanceRowDeleting" msprop:Generator_RowChangingName="vwTribalanceRowChanging" msprop:Generator_RowEvHandlerName="vwTribalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vwTribalanceRowDeleted" msprop:Generator_UserTableName="vwTribalance" msprop:Generator_RowChangedName="vwTribalanceRowChanged" msprop:Generator_RowEvArgName="vwTribalanceRowChangeEvent" msprop:Generator_RowClassName="vwTribalanceRow">
+        <xs:element name="vwTribalance" msprop:Generator_TableClassName="vwTribalanceDataTable" msprop:Generator_TableVarName="tablevwTribalance" msprop:Generator_RowChangedName="vwTribalanceRowChanged" msprop:Generator_TablePropName="vwTribalance" msprop:Generator_RowDeletingName="vwTribalanceRowDeleting" msprop:Generator_RowChangingName="vwTribalanceRowChanging" msprop:Generator_RowEvHandlerName="vwTribalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vwTribalanceRowDeleted" msprop:Generator_RowClassName="vwTribalanceRow" msprop:Generator_UserTableName="vwTribalance" msprop:Generator_RowEvArgName="vwTribalanceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MainHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMainHead" msprop:Generator_ColumnPropNameInRow="MainHead" msprop:Generator_ColumnPropNameInTable="MainHeadColumn" msprop:Generator_UserColumnName="MainHead" minOccurs="0">
@@ -282,7 +300,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwDayBook" msprop:Generator_TableClassName="vwDayBookDataTable" msprop:Generator_TableVarName="tablevwDayBook" msprop:Generator_RowChangedName="vwDayBookRowChanged" msprop:Generator_TablePropName="vwDayBook" msprop:Generator_RowDeletingName="vwDayBookRowDeleting" msprop:Generator_RowChangingName="vwDayBookRowChanging" msprop:Generator_RowEvHandlerName="vwDayBookRowChangeEventHandler" msprop:Generator_RowDeletedName="vwDayBookRowDeleted" msprop:Generator_RowClassName="vwDayBookRow" msprop:Generator_UserTableName="vwDayBook" msprop:Generator_RowEvArgName="vwDayBookRowChangeEvent">
+        <xs:element name="vwDayBook" msprop:Generator_TableClassName="vwDayBookDataTable" msprop:Generator_TableVarName="tablevwDayBook" msprop:Generator_TablePropName="vwDayBook" msprop:Generator_RowDeletingName="vwDayBookRowDeleting" msprop:Generator_RowChangingName="vwDayBookRowChanging" msprop:Generator_RowEvHandlerName="vwDayBookRowChangeEventHandler" msprop:Generator_RowDeletedName="vwDayBookRowDeleted" msprop:Generator_UserTableName="vwDayBook" msprop:Generator_RowChangedName="vwDayBookRowChanged" msprop:Generator_RowEvArgName="vwDayBookRowChangeEvent" msprop:Generator_RowClassName="vwDayBookRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MainHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMainHead" msprop:Generator_ColumnPropNameInRow="MainHead" msprop:Generator_ColumnPropNameInTable="MainHeadColumn" msprop:Generator_UserColumnName="MainHead" minOccurs="0">
@@ -297,7 +315,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwIncome" msprop:Generator_TableClassName="vwIncomeDataTable" msprop:Generator_TableVarName="tablevwIncome" msprop:Generator_TablePropName="vwIncome" msprop:Generator_RowDeletingName="vwIncomeRowDeleting" msprop:Generator_RowChangingName="vwIncomeRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeRowDeleted" msprop:Generator_UserTableName="vwIncome" msprop:Generator_RowChangedName="vwIncomeRowChanged" msprop:Generator_RowEvArgName="vwIncomeRowChangeEvent" msprop:Generator_RowClassName="vwIncomeRow">
+        <xs:element name="vwIncome" msprop:Generator_TableClassName="vwIncomeDataTable" msprop:Generator_TableVarName="tablevwIncome" msprop:Generator_RowChangedName="vwIncomeRowChanged" msprop:Generator_TablePropName="vwIncome" msprop:Generator_RowDeletingName="vwIncomeRowDeleting" msprop:Generator_RowChangingName="vwIncomeRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeRowDeleted" msprop:Generator_RowClassName="vwIncomeRow" msprop:Generator_UserTableName="vwIncome" msprop:Generator_RowEvArgName="vwIncomeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubsiHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubsiHead" msprop:Generator_ColumnPropNameInRow="SubsiHead" msprop:Generator_ColumnPropNameInTable="SubsiHeadColumn" msprop:Generator_UserColumnName="SubsiHead" minOccurs="0">
@@ -312,7 +330,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwExpendicture" msprop:Generator_TableClassName="vwExpendictureDataTable" msprop:Generator_TableVarName="tablevwExpendicture" msprop:Generator_RowChangedName="vwExpendictureRowChanged" msprop:Generator_TablePropName="vwExpendicture" msprop:Generator_RowDeletingName="vwExpendictureRowDeleting" msprop:Generator_RowChangingName="vwExpendictureRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureRowDeleted" msprop:Generator_RowClassName="vwExpendictureRow" msprop:Generator_UserTableName="vwExpendicture" msprop:Generator_RowEvArgName="vwExpendictureRowChangeEvent">
+        <xs:element name="vwExpendicture" msprop:Generator_TableClassName="vwExpendictureDataTable" msprop:Generator_TableVarName="tablevwExpendicture" msprop:Generator_TablePropName="vwExpendicture" msprop:Generator_RowDeletingName="vwExpendictureRowDeleting" msprop:Generator_RowChangingName="vwExpendictureRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureRowDeleted" msprop:Generator_UserTableName="vwExpendicture" msprop:Generator_RowChangedName="vwExpendictureRowChanged" msprop:Generator_RowEvArgName="vwExpendictureRowChangeEvent" msprop:Generator_RowClassName="vwExpendictureRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubsiHead" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubsiHead" msprop:Generator_ColumnPropNameInRow="SubsiHead" msprop:Generator_ColumnPropNameInTable="SubsiHeadColumn" msprop:Generator_UserColumnName="SubsiHead" minOccurs="0">
@@ -327,7 +345,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwIncomeProgressive" msprop:Generator_TableClassName="vwIncomeProgressiveDataTable" msprop:Generator_TableVarName="tablevwIncomeProgressive" msprop:Generator_TablePropName="vwIncomeProgressive" msprop:Generator_RowDeletingName="vwIncomeProgressiveRowDeleting" msprop:Generator_RowChangingName="vwIncomeProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeProgressiveRowDeleted" msprop:Generator_UserTableName="vwIncomeProgressive" msprop:Generator_RowChangedName="vwIncomeProgressiveRowChanged" msprop:Generator_RowEvArgName="vwIncomeProgressiveRowChangeEvent" msprop:Generator_RowClassName="vwIncomeProgressiveRow">
+        <xs:element name="vwIncomeProgressive" msprop:Generator_TableClassName="vwIncomeProgressiveDataTable" msprop:Generator_TableVarName="tablevwIncomeProgressive" msprop:Generator_RowChangedName="vwIncomeProgressiveRowChanged" msprop:Generator_TablePropName="vwIncomeProgressive" msprop:Generator_RowDeletingName="vwIncomeProgressiveRowDeleting" msprop:Generator_RowChangingName="vwIncomeProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwIncomeProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwIncomeProgressiveRowDeleted" msprop:Generator_RowClassName="vwIncomeProgressiveRow" msprop:Generator_UserTableName="vwIncomeProgressive" msprop:Generator_RowEvArgName="vwIncomeProgressiveRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DivisionCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDivisionCode" msprop:Generator_ColumnPropNameInRow="DivisionCode" msprop:Generator_ColumnPropNameInTable="DivisionCodeColumn" msprop:Generator_UserColumnName="DivisionCode" minOccurs="0">
@@ -384,7 +402,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwExpendictureProgressive" msprop:Generator_TableClassName="vwExpendictureProgressiveDataTable" msprop:Generator_TableVarName="tablevwExpendictureProgressive" msprop:Generator_TablePropName="vwExpendictureProgressive" msprop:Generator_RowDeletingName="vwExpendictureProgressiveRowDeleting" msprop:Generator_RowChangingName="vwExpendictureProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureProgressiveRowDeleted" msprop:Generator_UserTableName="vwExpendictureProgressive" msprop:Generator_RowChangedName="vwExpendictureProgressiveRowChanged" msprop:Generator_RowEvArgName="vwExpendictureProgressiveRowChangeEvent" msprop:Generator_RowClassName="vwExpendictureProgressiveRow">
+        <xs:element name="vwExpendictureProgressive" msprop:Generator_TableClassName="vwExpendictureProgressiveDataTable" msprop:Generator_TableVarName="tablevwExpendictureProgressive" msprop:Generator_RowChangedName="vwExpendictureProgressiveRowChanged" msprop:Generator_TablePropName="vwExpendictureProgressive" msprop:Generator_RowDeletingName="vwExpendictureProgressiveRowDeleting" msprop:Generator_RowChangingName="vwExpendictureProgressiveRowChanging" msprop:Generator_RowEvHandlerName="vwExpendictureProgressiveRowChangeEventHandler" msprop:Generator_RowDeletedName="vwExpendictureProgressiveRowDeleted" msprop:Generator_RowClassName="vwExpendictureProgressiveRow" msprop:Generator_UserTableName="vwExpendictureProgressive" msprop:Generator_RowEvArgName="vwExpendictureProgressiveRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DivisionCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDivisionCode" msprop:Generator_ColumnPropNameInRow="DivisionCode" msprop:Generator_ColumnPropNameInTable="DivisionCodeColumn" msprop:Generator_UserColumnName="DivisionCode" minOccurs="0">
@@ -492,7 +510,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vwMonthReturn" msprop:Generator_TableClassName="vwMonthReturnDataTable" msprop:Generator_TableVarName="tablevwMonthReturn" msprop:Generator_RowChangedName="vwMonthReturnRowChanged" msprop:Generator_TablePropName="vwMonthReturn" msprop:Generator_RowDeletingName="vwMonthReturnRowDeleting" msprop:Generator_RowChangingName="vwMonthReturnRowChanging" msprop:Generator_RowEvHandlerName="vwMonthReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="vwMonthReturnRowDeleted" msprop:Generator_RowClassName="vwMonthReturnRow" msprop:Generator_UserTableName="vwMonthReturn" msprop:Generator_RowEvArgName="vwMonthReturnRowChangeEvent">
+        <xs:element name="vwMonthReturn" msprop:Generator_TableClassName="vwMonthReturnDataTable" msprop:Generator_TableVarName="tablevwMonthReturn" msprop:Generator_TablePropName="vwMonthReturn" msprop:Generator_RowDeletingName="vwMonthReturnRowDeleting" msprop:Generator_RowChangingName="vwMonthReturnRowChanging" msprop:Generator_RowEvHandlerName="vwMonthReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="vwMonthReturnRowDeleted" msprop:Generator_UserTableName="vwMonthReturn" msprop:Generator_RowChangedName="vwMonthReturnRowChanged" msprop:Generator_RowEvArgName="vwMonthReturnRowChangeEvent" msprop:Generator_RowClassName="vwMonthReturnRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AccountCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAccountCode" msprop:Generator_ColumnPropNameInRow="AccountCode" msprop:Generator_ColumnPropNameInTable="AccountCodeColumn" msprop:Generator_UserColumnName="AccountCode" minOccurs="0">
@@ -514,7 +532,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_Balance" msprop:Generator_TableClassName="vw_BalanceDataTable" msprop:Generator_TableVarName="tablevw_Balance" msprop:Generator_TablePropName="vw_Balance" msprop:Generator_RowDeletingName="vw_BalanceRowDeleting" msprop:Generator_RowChangingName="vw_BalanceRowChanging" msprop:Generator_RowEvHandlerName="vw_BalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_BalanceRowDeleted" msprop:Generator_UserTableName="vw_Balance" msprop:Generator_RowChangedName="vw_BalanceRowChanged" msprop:Generator_RowEvArgName="vw_BalanceRowChangeEvent" msprop:Generator_RowClassName="vw_BalanceRow">
+        <xs:element name="vw_Balance" msprop:Generator_TableClassName="vw_BalanceDataTable" msprop:Generator_TableVarName="tablevw_Balance" msprop:Generator_RowChangedName="vw_BalanceRowChanged" msprop:Generator_TablePropName="vw_Balance" msprop:Generator_RowDeletingName="vw_BalanceRowDeleting" msprop:Generator_RowChangingName="vw_BalanceRowChanging" msprop:Generator_RowEvHandlerName="vw_BalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_BalanceRowDeleted" msprop:Generator_RowClassName="vw_BalanceRow" msprop:Generator_UserTableName="vw_Balance" msprop:Generator_RowEvArgName="vw_BalanceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TownName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTownName" msprop:Generator_ColumnPropNameInRow="TownName" msprop:Generator_ColumnPropNameInTable="TownNameColumn" msprop:Generator_UserColumnName="TownName" minOccurs="0">
@@ -525,6 +543,21 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Balance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vwTownAndAccount" msprop:Generator_TableClassName="vwTownAndAccountDataTable" msprop:Generator_TableVarName="tablevwTownAndAccount" msprop:Generator_TablePropName="vwTownAndAccount" msprop:Generator_RowDeletingName="vwTownAndAccountRowDeleting" msprop:Generator_RowChangingName="vwTownAndAccountRowChanging" msprop:Generator_RowEvHandlerName="vwTownAndAccountRowChangeEventHandler" msprop:Generator_RowDeletedName="vwTownAndAccountRowDeleted" msprop:Generator_UserTableName="vwTownAndAccount" msprop:Generator_RowChangedName="vwTownAndAccountRowChanged" msprop:Generator_RowEvArgName="vwTownAndAccountRowChangeEvent" msprop:Generator_RowClassName="vwTownAndAccountRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodeTownName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodeTownName" msprop:Generator_ColumnPropNameInRow="CodeTownName" msprop:Generator_ColumnPropNameInTable="CodeTownNameColumn" msprop:Generator_UserColumnName="CodeTownName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

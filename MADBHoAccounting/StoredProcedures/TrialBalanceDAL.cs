@@ -578,5 +578,58 @@ namespace MADBHoAccounting.StoredProcedures
             }
             return accNameList;
         }
+
+        public IEnumerable<TrialBalance> GetTownCodeAndNameList(string gpID, string tID, string sdID, DateTime eDate, string rpType, string rdVal, DateTime sDate, string mainhead, string connectionString)
+        {
+            List<TrialBalance> accNameList = new List<TrialBalance>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_TownAndAccount", con);
+
+                if (gpID == null)
+                {
+                    cmd.Parameters.AddWithValue("@GroupID", "");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@GroupID", gpID);
+                }
+                if (sdID == null)
+                {
+                    cmd.Parameters.AddWithValue("@StateDivisionCode", "");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@StateDivisionCode", sdID);
+                }
+                if (tID == null)
+                {
+                    cmd.Parameters.AddWithValue("@TownshipCode", "");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@TownshipCode", tID);
+                }
+
+                cmd.Parameters.AddWithValue("@EndDate", eDate);
+                cmd.Parameters.AddWithValue("@mainhead", mainhead);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    TrialBalance tb = new TrialBalance();
+
+                    tb.CodeTownName = dr["CodeTownName"].ToString();
+                    tb.Debit = Convert.ToDecimal(dr["Debit"].ToString());
+                    tb.Credit = Convert.ToDecimal(dr["Credit"].ToString());
+
+                    accNameList.Add(tb);
+                }
+                con.Close();
+            }
+            return accNameList;
+        }
     }
 }

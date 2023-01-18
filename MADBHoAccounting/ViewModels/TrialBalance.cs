@@ -20,6 +20,7 @@ namespace MADBHoAccounting.ViewModels
         public decimal? EndOfMonth { get; set; }
         public string TownName { get; set; }
         public decimal? Balance { get; set; }
+        public string CodeTownName { get; set; }
 
     }
 }
